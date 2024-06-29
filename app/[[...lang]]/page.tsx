@@ -23,7 +23,7 @@ export default async function LangHome({
     <>
       {/* Hero Section */}
       <Hero locale={dict.Hero} CTALocale={dict.CTAButton} />
-      <SocialProof locale={dict.SocialProof} />
+      {/* <SocialProof locale={dict.SocialProof} /> */}
       {/* display technology stack, partners, project honors, etc. */}
       <ScrollingLogos />
 
@@ -34,7 +34,7 @@ export default async function LangHome({
       <Pricing id="Pricing" locale={dict.Pricing} langName={langName} />
 
       {/* Testimonials / Wall of Love */}
-      <WallOfLove id="WallOfLove" locale={dict.WallOfLove} />
+      {/* <WallOfLove id="WallOfLove" locale={dict.WallOfLove} /> */}
 
       {/* FAQ (Frequently Asked Questions) */}
       <FAQ id="FAQ" locale={dict.FAQ} langName={langName} />
@@ -44,3 +44,4 @@ export default async function LangHome({
     </>
   );
 }
+

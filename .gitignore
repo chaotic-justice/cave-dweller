@@ -128,3 +128,4 @@ dist
 # sitemap
 */sitemap*.xml
 */robots.txt
+node_modules
