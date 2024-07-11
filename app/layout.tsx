@@ -1,4 +1,3 @@
-import BaiDuAnalytics from "@/app/BaiDuAnalytics";
 import GoogleAnalytics from "@/app/GoogleAnalytics";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -13,7 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
 import { Inter as FontSans } from "next/font/google";
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
@@ -25,7 +24,7 @@ export const metadata = {
   authors: siteConfig.authors,
   creator: siteConfig.creator,
   icons: siteConfig.icons,
-  metadataBase: siteConfig.metadataBase,
+  // metadataBase: siteConfig.metadataBase,
   openGraph: siteConfig.openGraph,
   twitter: siteConfig.twitter,
 };
@@ -65,10 +64,10 @@ export default async function RootLayout({
         ) : (
           <>
             <GoogleAnalytics />
-            <BaiDuAnalytics />
           </>
         )}
       </body>
     </html>
   );
 }
+

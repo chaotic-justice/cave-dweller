@@ -19,39 +19,41 @@ export type ThemeColor = {
   color: string
 }
 export type SiteConfig = {
-  name: string
-  description: string
-  url: string
-  keywords: string[]
-  authors: AuthorsConfig[]
-  creator: string
-  openSourceURL?: string
-  ogImage: string
-  headerLinks: Link[]
-  footerLinks: Link[],
-  footerProducts: ProductLink[]
-  metadataBase: URL | string
-  themeColors?: string | ThemeColor[]
-  nextThemeColor?: string
+  name: string;
+  description: string;
+  url: string;
+  keywords: string[];
+  authors: AuthorsConfig[];
+  creator: string;
+  openSourceURL?: string;
+  ogImage: string;
+  headerLinks: Link[];
+  footerLinks: Link[];
+  footerProducts: ProductLink[];
+  metadataBase: URL | string | undefined;
+  themeColors?: string | ThemeColor[];
+  nextThemeColor?: string;
   icons: {
-    icon: string
-    shortcut?: string
-    apple?: string
-  }
+    icon: string;
+    shortcut?: string;
+    apple?: string;
+  };
   openGraph: {
-    type: string
-    locale: string
-    url: string
-    title: string
-    description: string
-    siteName: string
-    images?: string[]
-  },
+    type: string;
+    locale: string;
+    url: string;
+    title: string;
+    description: string;
+    siteName: string;
+    images?: string[];
+  };
   twitter: {
-    card: string
-    title: string
-    description: string
-    images?: string[]
-    creator: string
-  },
-}
+    card: string;
+    title: string;
+    description: string;
+    images?: string[];
+    creator: string;
+  };
+};
+
+

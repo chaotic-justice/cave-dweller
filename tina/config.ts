@@ -1,4 +1,4 @@
-import Author from "@/tina/collection/author";
+import Author from "./collection/author";
 import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
