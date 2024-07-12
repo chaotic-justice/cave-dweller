@@ -1,3 +1,5 @@
+import Page from "./collection/page";
+import Artwork from "./collection/artwork";
 import Author from "./collection/author";
 import { defineConfig } from "tinacms";
 
@@ -49,11 +51,12 @@ export default defineConfig({
           },
         ],
         ui: {
-          // This is an DEMO router. You can remove this to fit your site
-          router: ({ document }) => `/blog/${document._sys.filename}`,
+          router: ({ document }) => `/blogs/${document._sys.filename}`,
         },
       },
       Author,
+      Artwork,
+      Page,
     ],
   },
 });

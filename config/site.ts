@@ -3,7 +3,7 @@ import { BsGithub, BsTwitterX, BsWechat } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { SiBuymeacoffee, SiJuejin } from "react-icons/si";
 
-const OPEN_SOURCE_URL = "https://github.com/weijunext/landing-page-boilerplate";
+const OPEN_SOURCE_URL = "https://github.com/chaotic-justice/cave-dweller";
 
 const baseSiteConfig = {
   name: "Cave dwellers",
@@ -30,7 +30,7 @@ const baseSiteConfig = {
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
-  nextThemeColor: "dark", // next-theme option: system | dark | light
+  nextThemeColor: "light", // next-theme option: system | dark | light
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
@@ -108,6 +108,9 @@ export const siteConfig: SiteConfig = {
     creator: baseSiteConfig.creator,
   },
 };
+
+
+
 
 
 

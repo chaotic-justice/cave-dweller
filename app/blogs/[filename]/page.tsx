@@ -1,19 +1,26 @@
-// THIS FILE HAS BEEN GENERATED WITH THE TINA CLI.
-// @ts-nocheck
-// This is a demo file once you have tina setup feel free to delete this file
-
 import Head from "next/head";
 import { useTina } from "tinacms/dist/react";
 import { draftMode } from "next/headers";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import client from "../../../tina/__generated__/client";
-import ClientPage from "@/app/blog/[filename]/ClientPage";
-import ServerPage from "@/app/blog/[filename]/ServerPage";
+import ClientPage from "@/app/blogs/[filename]/ClientPage";
+import ServerPage from "@/app/blogs/[filename]/ServerPage";
+import { notFound } from "next/navigation";
 
-const BlogPage = async ({ params: { filename } }) => {
-  const res = await client.queries.post({
-    relativePath: `${filename}.md`,
-  });
+const BlogPage = async ({
+  params: { filename },
+}: {
+  params: { filename: any };
+}) => {
+  let res = undefined;
+  try {
+    res = await client.queries.post({
+      relativePath: `${filename}.md`,
+    });
+  } catch (error) {
+    console.error(res?.errors, error);
+    return notFound();
+  }
 
   const { isEnabled } = draftMode();
 
@@ -65,14 +72,6 @@ const BlogPage = async ({ params: { filename } }) => {
 //     </>
 //   );
 // };
-
-export async function generateStaticParams() {
-  const postsListData = await client.queries.postConnection();
-
-  return postsListData.data.postConnection.edges.map((post) => ({
-    filename: post.node._sys.filename,
-  }));
-}
 
 export default BlogPage;
 

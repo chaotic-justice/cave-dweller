@@ -18,6 +18,7 @@ export default async function LangHome({
     lang && lang[0] && lang[0] !== "index" ? lang[0] : defaultLocale;
 
   const dict = await getDictionary(langName);
+  console.log("lang", langName);
 
   return (
     <>
@@ -44,4 +45,6 @@ export default async function LangHome({
     </>
   );
 }
+
+
 

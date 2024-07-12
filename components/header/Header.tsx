@@ -12,19 +12,11 @@ import { ThemedButton } from "../ThemedButton";
 const links = [
   {
     label: "Features",
-    href: "#Features",
+    href: "/blogs",
   },
   {
     label: "Pricing",
-    href: "#Pricing",
-  },
-  {
-    label: "Wall of Love",
-    href: "#WallOfLove",
-  },
-  {
-    label: "FAQ",
-    href: "#FAQ",
+    href: "/gallery",
   },
 ];
 
@@ -70,7 +62,7 @@ const Header = () => {
 
         <div className="hidden md:flex items-center gap-x-6">
           <HeaderLinks />
-          <ThemedButton />
+          {/* <ThemedButton /> */}
           <LangSwitcher />
         </div>
 
@@ -154,4 +146,7 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
 
