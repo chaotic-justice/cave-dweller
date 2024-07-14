@@ -3,8 +3,8 @@ import { useTina } from "tinacms/dist/react";
 import { draftMode } from "next/headers";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import client from "../../../tina/__generated__/client";
-import ClientPage from "@/app/blogs/[filename]/ClientPage";
-import ServerPage from "@/app/blogs/[filename]/ServerPage";
+import ClientPage from "@/app/posts/[filename]/ClientPage";
+import ServerPage from "@/app/posts/[filename]/ServerPage";
 import { notFound } from "next/navigation";
 
 const BlogPage = async ({

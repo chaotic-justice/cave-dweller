@@ -5,6 +5,11 @@ const Author: Collection = {
   name: "author",
   path: "content/authors",
   format: "md",
+  ui: {
+    router: ({ document }) => {
+      return `/authors/${document._sys.breadcrumbs.join("/")}`;
+    },
+  },
   fields: [
     {
       label: "Name",
@@ -22,3 +27,5 @@ const Author: Collection = {
 };
 
 export default Author;
+
+

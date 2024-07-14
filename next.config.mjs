@@ -4,12 +4,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.rei.com",
-        port: "",
-        pathname: "/media/**",
-      },
-      {
-        protocol: "https",
         hostname: "handcraftedfarmers.com",
         port: "",
         pathname: "/cdn/shop/files/**",
@@ -32,6 +26,7 @@ const nextConfig = {
 };
 
 export default nextConfig;
+
 
 
 

@@ -51,7 +51,7 @@ export default defineConfig({
           },
         ],
         ui: {
-          router: ({ document }) => `/blogs/${document._sys.filename}`,
+          router: ({ document }) => `/posts/${document._sys.filename}`,
         },
       },
       Author,
@@ -60,4 +60,5 @@ export default defineConfig({
     ],
   },
 });
+
 
