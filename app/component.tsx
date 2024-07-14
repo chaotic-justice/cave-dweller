@@ -20,7 +20,6 @@ const ArtworkList = ({
         {edges?.map((artwork) => {
           const pattern = /\/([^/]+)\.mdx$/;
           const match = (artwork?.node?.id || "").match(pattern);
-          console.log("match", match);
           return (
             <div key={artwork?.node?.id}>
               <Link href={`/${match && match[1]}`}>
@@ -40,4 +39,5 @@ const ArtworkList = ({
 };
 
 export default ArtworkList;
+
 

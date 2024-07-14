@@ -1,7 +1,6 @@
-import Page from "./collection/page";
+import { defineConfig } from "tinacms";
 import Artwork from "./collection/artwork";
 import Author from "./collection/author";
-import { defineConfig } from "tinacms";
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -56,9 +55,7 @@ export default defineConfig({
       },
       Author,
       Artwork,
-      Page,
     ],
   },
 });
-
 
