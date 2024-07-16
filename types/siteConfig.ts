@@ -1,23 +1,23 @@
-import { IconType } from "react-icons"
+import { IconType } from "react-icons";
 
 export type AuthorsConfig = {
-  name: string
-  url: string
-  twitter?: string
-}
+  name: string;
+  url: string;
+  twitter?: string;
+};
 export type ProductLink = {
-  url: string
-  name: string
-}
+  url: string;
+  name: string;
+};
 export type Link = {
-  name: string
-  href: string
-  icon: IconType
-}
+  name: string;
+  href: string;
+  icon: IconType;
+};
 export type ThemeColor = {
-  media: string
-  color: string
-}
+  media: string;
+  color: string;
+};
 export type SiteConfig = {
   name: string;
   description: string;
@@ -29,7 +29,6 @@ export type SiteConfig = {
   ogImage: string;
   headerLinks: Link[];
   footerLinks: Link[];
-  footerProducts: ProductLink[];
   metadataBase: URL | string | undefined;
   themeColors?: string | ThemeColor[];
   nextThemeColor?: string;
@@ -55,5 +54,4 @@ export type SiteConfig = {
     creator: string;
   };
 };
-
 

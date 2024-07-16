@@ -1,7 +1,7 @@
 import { SiteConfig } from "@/types/siteConfig";
-import { BsGithub, BsTwitterX, BsWechat } from "react-icons/bs";
+import { BsGithub, BsSpotify } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import { SiBuymeacoffee, SiJuejin } from "react-icons/si";
+import { SiBuymeacoffee } from "react-icons/si";
 
 const OPEN_SOURCE_URL = "https://github.com/chaotic-justice/cave-dweller";
 
@@ -20,7 +20,7 @@ const baseSiteConfig = {
   ],
   authors: [
     {
-      name: "chao lai",
+      name: "chao justice lai",
       url: "https://github.com/chaotic-justice",
     },
   ],
@@ -39,53 +39,27 @@ const baseSiteConfig = {
   headerLinks: [
     { name: "repo", href: OPEN_SOURCE_URL, icon: BsGithub },
     {
-      name: "twitter",
-      href: "https://twitter.com/weijunext",
-      icon: BsTwitterX,
-    },
-    {
       name: "buyMeCoffee",
-      href: "https://www.buymeacoffee.com/weijunext",
+      href: "https://lichess.org/@/soft-orca",
       icon: SiBuymeacoffee,
     },
   ],
   footerLinks: [
-    { name: "email", href: "mailto:weijunext@gmail.com", icon: MdEmail },
+    { name: "email", href: "mailto:chaolai.1082@gmail.com", icon: MdEmail },
     {
-      name: "twitter",
-      href: "https://twitter.com/weijunext",
-      icon: BsTwitterX,
+      name: "github",
+      href: "https://github.com/chaotic-justice/",
+      icon: BsGithub,
     },
-    { name: "github", href: "https://github.com/weijunext/", icon: BsGithub },
     {
       name: "buyMeCoffee",
-      href: "https://www.buymeacoffee.com/weijunext",
+      href: "https://lichess.org/@/soft-orca",
       icon: SiBuymeacoffee,
     },
     {
-      name: "juejin",
-      href: "https://juejin.cn/user/26044008768029",
-      icon: SiJuejin,
-    },
-    {
-      name: "weChat",
-      href: "https://weijunext.com/make-a-friend",
-      icon: BsWechat,
-    },
-  ],
-  footerProducts: [
-    { url: "https://weijunext.com/", name: "J实验室" },
-    { url: "https://smartexcel.cc/", name: "Smart Excel" },
-    {
-      url: "https://landingpage.weijunext.com/",
-      name: "Landing Page Boilerplate",
-    },
-    { url: "https://nextjs.weijunext.com/", name: "Next.js Practice" },
-    { url: "https://starter.weijunext.com/", name: "Next.js Starter" },
-    { url: "https://githubbio.com", name: "Github Bio Generator" },
-    {
-      url: "https://github.com/weijunext/indie-hacker-tools",
-      name: "Indie Hacker Tools",
+      name: "spotify",
+      href: "https://open.spotify.com/user/l7yw167zb9vylsyjbux550a2c",
+      icon: BsSpotify,
     },
   ],
 };
@@ -108,12 +82,6 @@ export const siteConfig: SiteConfig = {
     creator: baseSiteConfig.creator,
   },
 };
-
-
-
-
-
-
 
 
 
