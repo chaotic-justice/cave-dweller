@@ -7,7 +7,7 @@ const Artwork: Collection = {
   format: "mdx",
   ui: {
     router: ({ document }) => {
-      return `/artworks/${document._sys.breadcrumbs.join("/")}`;
+      return `/${document._sys.breadcrumbs.join("/")}`;
     },
   },
   fields: [
@@ -34,6 +34,27 @@ const Artwork: Collection = {
       label: "Hero Image",
     },
     {
+      type: "object",
+      name: "additionalImgs",
+      list: true,
+      fields: [
+        {
+          type: "image",
+          name: "imgSrc",
+        },
+      ],
+      ui: {
+        itemProps: (item) => {
+          return {
+            label: item?.imgSrc,
+            style: {
+              background: `left / contain no-repeat url(${item?.imgSrc})`,
+            },
+          };
+        },
+      },
+    },
+    {
       type: "reference",
       label: "Author",
       name: "author",
@@ -52,4 +73,7 @@ const Artwork: Collection = {
 };
 
 export default Artwork;
+
+
+
 

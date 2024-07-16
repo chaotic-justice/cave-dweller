@@ -20,6 +20,7 @@ const Artwork = (props: Props) => {
     variables: props.variables,
     data: props.data,
   });
+  console.log("artwork", artwork);
 
   return (
     <div className="flex flex-col items-center justify-center bg-background">
@@ -73,4 +74,5 @@ const Artwork = (props: Props) => {
 };
 
 export default Artwork;
+
 
