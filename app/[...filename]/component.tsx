@@ -1,5 +1,12 @@
 "use client";
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { ArtworkQuery } from "@/tina/__generated__/types";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/react";
@@ -20,7 +27,10 @@ const Artwork = (props: Props) => {
     variables: props.variables,
     data: props.data,
   });
-  console.log("artwork", artwork);
+  const arr = [artwork?.heroImg];
+  artwork?.additionalImgs?.forEach((img) => {
+    if (img) arr.push(img.imgSrc);
+  });
 
   return (
     <div className="flex flex-col items-center justify-center bg-background">
@@ -45,13 +55,29 @@ const Artwork = (props: Props) => {
       ) : (
         <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
           <div className="bg-card rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src={artwork.heroImg || "/placeholder.svg"}
-              alt="Artwork"
-              width={900}
-              height={600}
-              className="w-full h-[600px] object-cover"
-            />
+            <Carousel className="w-full" opts={{ loop: true }}>
+              <CarouselContent>
+                {arr.map((item, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1">
+                      <Image
+                        src={item || "/placeholder.svg"}
+                        alt="Artwork"
+                        width={900}
+                        height={600}
+                        className="w-full h-[600px] object-cover"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              {arr.length > 1 && (
+                <>
+                  <CarouselPrevious />
+                  <CarouselNext />
+                </>
+              )}
+            </Carousel>
             <div className="p-6 sm:p-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground">
                 {artwork.title}
@@ -74,5 +100,17 @@ const Artwork = (props: Props) => {
 };
 
 export default Artwork;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
