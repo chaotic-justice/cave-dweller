@@ -1,3 +1,7 @@
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./lib/i18n.ts");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -23,26 +27,23 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: "/",
+        locale: false,
+        destination: "/en",
+        permanent: false,
+      },
+      // {
+      //   source: "/en",
+      //   destination: "/en/artworks",
+      //   locale: false,
+      //   permanent: false,
+      // },
+    ];
+  },
 };
 
-export default nextConfig;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default withNextIntl(nextConfig);
 

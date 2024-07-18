@@ -1,0 +1,17 @@
+{
+  "CompanyStats": {
+    "yearsOfService": {
+      "title": "Years of service",
+      "value": "34"
+    },
+    "happyClients": {
+      "title": "Happy clients",
+      "value": "1.000+"
+    },
+    "partners": {
+      "title": "Products",
+      "value": "5.000+"
+    }
+  }
+}
+

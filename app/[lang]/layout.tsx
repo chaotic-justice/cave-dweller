@@ -4,12 +4,14 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Footer from "@/components/footer/Footer";
 import Header from "@/components/header/Header";
 import { siteConfig } from "@/config/site";
-import { defaultLocale } from "@/lib/i18n";
+import { locales } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import "@/styles/loading.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages, getTranslations } from "next-intl/server";
 import { Inter as FontSans } from "next/font/google";
 
 const fontSans = FontSans({
@@ -32,15 +34,22 @@ export const viewport: Viewport = {
   themeColor: siteConfig.themeColors,
 };
 
+type Props = {
+  children: React.ReactNode;
+  params: { lang: string };
+};
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
   params: { lang },
-}: {
-  children: React.ReactNode;
-  params: { lang: string[] | undefined };
-}) {
+}: Props) {
+  const messages = await getMessages();
   return (
-    <html lang={(lang && lang[0]) || defaultLocale} suppressHydrationWarning>
+    <html lang={lang}>
       <head />
       <body
         className={cn(
@@ -54,7 +63,11 @@ export default async function RootLayout({
           enableSystem
         >
           <Header />
-          <main className="flex flex-col items-center py-6">{children}</main>
+          <main className="flex flex-col items-center py-6">
+            <NextIntlClientProvider messages={messages}>
+              {children}
+            </NextIntlClientProvider>
+          </main>
           <Footer />
           <Analytics />
           <TailwindIndicator />
@@ -70,7 +83,4 @@ export default async function RootLayout({
     </html>
   );
 }
-
-
-
 

@@ -32,7 +32,7 @@ const ArtworkList = ({
           });
           return (
             <div key={artwork?.node?.id} className="pb-0 md:pb-3">
-              <Link href={`/${match && match[1]}`}>
+              <Link href={`/artworks/${match && match[1]}`}>
                 {arr.length === 1 ? (
                   <Image
                     width={500}
@@ -77,40 +77,4 @@ const ArtworkList = ({
 };
 
 export default ArtworkList;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

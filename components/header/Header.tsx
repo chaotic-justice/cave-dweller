@@ -16,7 +16,7 @@ const links = [
   },
   {
     label: "Pricing",
-    href: "/gallery",
+    href: "/artworks",
   },
 ];
 
@@ -146,6 +146,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 

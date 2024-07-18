@@ -1,9 +1,3 @@
-import { locales } from "./lib/i18n";
-
-import { NextRequest, NextResponse } from "next/server";
-
-const whitelist = ["not-found"];
-
 // export function middleware(request: NextRequest) {
 //   const { pathname } = request.nextUrl;
 
@@ -26,24 +20,30 @@ const whitelist = ["not-found"];
 //   matcher: ["/((?!_next)(?!.*\\.(?:ico|png|svg|jpg|jpeg|xml|txt)$)(?!/api).*)"],
 // };
 
-export function middleware(request: NextRequest) {
-  return NextResponse.redirect(new URL("/home", request.url));
-}
+import { localePrefix, locales } from "@/lib/i18n";
+import createMiddleware from "next-intl/middleware";
+
+export default createMiddleware({
+  // A list of all locales that are supported
+  locales,
+
+  // Used when no locale matches
+  defaultLocale: "en",
+  localePrefix,
+});
 
 export const config = {
-  matcher: "/about/:path*",
+  matcher: [
+    // Enable a redirect to a matching locale at the root
+    "/",
+
+    // Set a cookie to remember the previous locale for
+    // all requests that have a locale prefix
+    "/(de|en)/:path*",
+
+    // Enable redirects that add missing locales
+    // (e.g. `/pathnames` -> `/en/pathnames`)
+    "/((?!_next|_vercel|.*\\..*).*)",
+  ],
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
 
