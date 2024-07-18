@@ -22,7 +22,7 @@ const ArtworkList = ({
 }: Props) => {
   return (
     <div className="p-4">
-      <div className="columns-1 gap-2 sm:columns-2 sm:gap-4 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-4">
+      <div className="columns-1 gap-2 sm:columns-2 sm:gap-4 md:columns-3 [&>img:not(:first-child)]:mt-4">
         {edges?.map((artwork) => {
           const pattern = /\/([^/]+)\.mdx$/;
           const match = (artwork?.node?.id || "").match(pattern);
@@ -31,7 +31,7 @@ const ArtworkList = ({
             if (img) arr.push(img.imgSrc);
           });
           return (
-            <div key={artwork?.node?.id}>
+            <div key={artwork?.node?.id} className="pb-0 md:pb-3">
               <Link href={`/${match && match[1]}`}>
                 {arr.length === 1 ? (
                   <Image
@@ -42,7 +42,7 @@ const ArtworkList = ({
                   />
                 ) : (
                   <Carousel
-                    className="w-full max-w-xs"
+                    className="w-full "
                     opts={{ loop: true }}
                     plugins={[
                       Autoplay({
@@ -77,6 +77,13 @@ const ArtworkList = ({
 };
 
 export default ArtworkList;
+
+
+
+
+
+
+
 
 
 
