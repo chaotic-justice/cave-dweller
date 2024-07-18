@@ -5,7 +5,7 @@
 export const localeNames: any = {
   en: "🇺🇸 English",
   zh: "🇨🇳 中文",
-  ja: "🇯🇵 日本語",
+  jp: "🇯🇵 日本語",
   ar: "🇸🇦 العربية",
   es: "🇪🇸 Español",
   ru: "🇷🇺 Русский",
@@ -46,7 +46,7 @@ import { getRequestConfig } from "next-intl/server";
 import { notFound } from "next/navigation";
 
 // Can be imported from a shared config
-export const locales = ["en", "es"];
+export const locales = ["en", "es", "jp"];
 
 export const localePrefix: LocalePrefix<typeof locales> = "always";
 
@@ -59,4 +59,5 @@ export default getRequestConfig(async ({ locale }) => {
     messages: (await import(`../messages/${locale}.json`)).default,
   };
 });
+
 

@@ -6,9 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { useParams, useRouter } from "next/navigation";
-
-import { defaultLocale, localeNames } from "@/lib/i18n";
+import { useParams, usePathname, useRouter } from "next/navigation";
+import { defaultLocale, localeNames, locales } from "@/lib/i18n";
 
 export const LangSwitcher = () => {
   const params = useParams();
@@ -18,13 +17,11 @@ export const LangSwitcher = () => {
   let langName =
     lang && lang[0] && lang[0] !== "index" ? lang[0] : defaultLocale;
   const router = useRouter();
+  const pathname = usePathname();
 
   const handleSwitchLanguage = (value: string) => {
-    if (value === defaultLocale) {
-      router.push("/");
-      return;
-    }
-    router.push(value);
+    const newPath = `/${value}/${pathname.split("/").slice(2).join("/")}`;
+    router.push(newPath);
   };
 
   return (
@@ -33,7 +30,7 @@ export const LangSwitcher = () => {
         <SelectValue placeholder="Language" />
       </SelectTrigger>
       <SelectContent>
-        {Object.keys(localeNames).map((key: string) => {
+        {locales.map((key: string) => {
           const name = localeNames[key];
           return (
             <SelectItem className="cursor-pointer" key={key} value={key}>
@@ -45,3 +42,10 @@ export const LangSwitcher = () => {
     </Select>
   );
 };
+
+
+
+
+
+
+

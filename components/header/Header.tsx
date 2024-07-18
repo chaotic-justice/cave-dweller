@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 import { ThemedButton } from "../ThemedButton";
+import { useLocale } from "next-intl";
 
 const links = [
   {
@@ -21,6 +22,8 @@ const links = [
 ];
 
 const Header = () => {
+  const locale = useLocale();
+  console.log("locale: ", locale);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <header className="py-10 px-4 sm:px-6 lg:px-8">
@@ -146,6 +149,8 @@ const Header = () => {
 };
 
 export default Header;
+
+
 
 
 

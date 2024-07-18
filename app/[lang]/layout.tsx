@@ -62,12 +62,10 @@ export default async function RootLayout({
           defaultTheme={siteConfig.nextThemeColor}
           enableSystem
         >
-          <Header />
-          <main className="flex flex-col items-center py-6">
-            <NextIntlClientProvider messages={messages}>
-              {children}
-            </NextIntlClientProvider>
-          </main>
+          <NextIntlClientProvider messages={messages}>
+            <Header />
+            <main className="flex flex-col items-center py-6">{children}</main>
+          </NextIntlClientProvider>
           <Footer />
           <Analytics />
           <TailwindIndicator />
@@ -83,4 +81,5 @@ export default async function RootLayout({
     </html>
   );
 }
+
 
