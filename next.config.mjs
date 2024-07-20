@@ -22,7 +22,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/admin",
+        source: "/en/admin",
         destination: "/admin/index.html",
       },
     ];
@@ -46,4 +46,6 @@ const nextConfig = {
 };
 
 export default withNextIntl(nextConfig);
+
+
 

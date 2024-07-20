@@ -1,4 +1,4 @@
-import AuthorsList from "@/app/authors/component";
+import AuthorsList from "@/app/[lang]/authors/component";
 import client from "@/tina/__generated__/client";
 
 const page = async () => {

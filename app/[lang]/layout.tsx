@@ -65,8 +65,8 @@ export default async function RootLayout({
           <NextIntlClientProvider messages={messages}>
             <Header />
             <main className="flex flex-col items-center py-6">{children}</main>
+            <Footer />
           </NextIntlClientProvider>
-          <Footer />
           <Analytics />
           <TailwindIndicator />
         </ThemeProvider>
@@ -81,5 +81,6 @@ export default async function RootLayout({
     </html>
   );
 }
+
 
 

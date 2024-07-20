@@ -12,6 +12,19 @@
       "title": "Products",
       "value": "5.000+"
     }
+  },
+  "Header": {
+    "links": {
+      "item0": {
+        "label": "Authors",
+        "link": "/authors"
+      },
+      "item1": {
+        "label": "Artworks",
+        "link": "/artworks"
+      }
+    }
   }
 }
+
 

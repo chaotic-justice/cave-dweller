@@ -2,7 +2,7 @@
   "CompanyStats": {
     "yearsOfService": {
       "title": "Years of service",
-      "value": "340"
+      "value": "140"
     },
     "happyClients": {
       "title": "Happy clients",
@@ -11,6 +11,18 @@
     "partners": {
       "title": "Products",
       "value": "5.000+"
+    }
+  },
+  "Header": {
+    "links": {
+      "item0": {
+        "label": "著者",
+        "link": "/authors"
+      },
+      "item1": {
+        "label": "芸術作品",
+        "link": "/artworks"
+      }
     }
   }
 }

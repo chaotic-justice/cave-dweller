@@ -9,6 +9,7 @@ import { ArtworkConnectionQuery } from "@/tina/__generated__/types";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Props {
   query: string;
@@ -20,6 +21,8 @@ const ArtworkList = ({
     artworkConnection: { edges },
   },
 }: Props) => {
+  const pathname = usePathname();
+  console.log("pathname", pathname);
   return (
     <div className="p-4">
       <div className="columns-1 gap-2 sm:columns-2 sm:gap-4 md:columns-3 [&>img:not(:first-child)]:mt-4">
@@ -77,4 +80,5 @@ const ArtworkList = ({
 };
 
 export default ArtworkList;
+
 

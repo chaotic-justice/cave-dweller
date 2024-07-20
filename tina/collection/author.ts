@@ -28,4 +28,3 @@ const Author: Collection = {
 
 export default Author;
 
-

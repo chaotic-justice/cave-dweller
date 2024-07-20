@@ -1,16 +1,17 @@
-import Author from "@/app/authors/[filename]/component";
+import Author from "@/app/[lang]/authors/[filename]/component";
 import client from "@/tina/__generated__/client";
 import { notFound } from "next/navigation";
 
 const page = async ({
-  params: { filename },
+  params: { filename, lang },
 }: {
-  params: { filename: string };
+  params: { filename: string; lang: string };
 }) => {
+  console.log("lang on author", lang);
   let res = undefined;
   try {
     res = await client.queries.author({
-      relativePath: `${filename}.md`,
+      relativePath: `${lang}/${filename}.md`,
     });
     console.log("nested route.");
   } catch (error) {

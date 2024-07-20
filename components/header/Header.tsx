@@ -3,28 +3,17 @@ import HeaderLinks from "@/components/header/HeaderLinks";
 import { LangSwitcher } from "@/components/header/LangSwitcher";
 import { siteConfig } from "@/config/site";
 import { MenuIcon } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { CgClose } from "react-icons/cg";
-import { ThemedButton } from "../ThemedButton";
-import { useLocale } from "next-intl";
-
-const links = [
-  {
-    label: "Features",
-    href: "/posts",
-  },
-  {
-    label: "Pricing",
-    href: "/artworks",
-  },
-];
 
 const Header = () => {
   const locale = useLocale();
-  console.log("locale: ", locale);
+  const t = useTranslations("Header.links");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className="py-10 px-4 sm:px-6 lg:px-8">
       <nav className="z-50 flex justify-between">
@@ -49,18 +38,22 @@ const Header = () => {
         </div>
 
         <ul className="hidden items-center gap-6 md:flex">
-          {links.map((link) => (
-            <li key={link.label}>
-              <Link
-                href={link.href}
-                aria-label={link.label}
-                title={link.label}
-                className="tracking-wide transition-colors duration-200 font-norma"
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {new Array(2).fill(null).map((_, i) => {
+            const itemLabel = t(`item${i}.label`);
+            const itemLink = t(`item${i}.link`);
+            return (
+              <li key={i}>
+                <Link
+                  href={itemLink}
+                  aria-label={itemLabel}
+                  title={itemLabel}
+                  className="tracking-wide transition-colors duration-200 font-norma"
+                >
+                  {itemLabel}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
         <div className="hidden md:flex items-center gap-x-6">
@@ -114,19 +107,23 @@ const Header = () => {
                 </div>
                 <nav>
                   <ul className="space-y-4">
-                    {links.map((link) => (
-                      <li key={link.label}>
-                        <Link
-                          href={link.href}
-                          aria-label={link.label}
-                          title={link.label}
-                          className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {link.label}
-                        </Link>
-                      </li>
-                    ))}
+                    {new Array(2).fill(null).map((_, i) => {
+                      const itemLabel = t(`item${i}.label`);
+                      const itemLink = t(`item${i}.link`);
+                      return (
+                        <li key={itemLabel}>
+                          <Link
+                            href={itemLink}
+                            aria-label={itemLabel}
+                            title={itemLabel}
+                            className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {itemLabel}
+                          </Link>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </nav>
                 <div className="pt-2">
@@ -134,7 +131,6 @@ const Header = () => {
                   <div className="flex items-center gap-x-5 justify-between">
                     <HeaderLinks />
                     <div className="flex items-center justify-end gap-x-5">
-                      <ThemedButton />
                       <LangSwitcher />
                     </div>
                   </div>
@@ -149,6 +145,26 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
