@@ -1,5 +1,5 @@
 {
-  "name": "landing-page-boilerplate",
+  "name": "shukagi-gallery",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -50,3 +50,5 @@
     "typescript": "^5"
   }
 }
+
+

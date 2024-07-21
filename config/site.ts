@@ -1,23 +1,16 @@
 import { SiteConfig } from "@/types/siteConfig";
-import { BsGithub, BsSpotify } from "react-icons/bs";
+import { BsGithub, BsInstagram, BsSpotify } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { SiBuymeacoffee } from "react-icons/si";
 
 const OPEN_SOURCE_URL = "https://github.com/chaotic-justice/cave-dweller";
 
 const baseSiteConfig = {
-  name: "Cave dwellers",
-  description:
-    "A free, open-source, and powerful landing page boilerplate, ideal for various projects, enabling you to create a landing page in under an hour.",
+  name: "shukagi",
+  description: "shukagi's arts gallery site",
   url: "https://landingpage.weijunext.com",
-  ogImage: "https://landingpage.weijunext.com/og.png",
   metadataBase: "/",
-  keywords: [
-    "landing page boilerplate",
-    "landing page template",
-    "awesome landing page",
-    "next.js landing page",
-  ],
+  keywords: ["shukagi", "artworks", "shukagi artist", "shu-kagi"],
   authors: [
     {
       name: "chao justice lai",
@@ -34,32 +27,25 @@ const baseSiteConfig = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.png",
-    apple: "/logo.png",
   },
   headerLinks: [
-    { name: "repo", href: OPEN_SOURCE_URL, icon: BsGithub },
     {
-      name: "buyMeCoffee",
-      href: "https://lichess.org/@/soft-orca",
-      icon: SiBuymeacoffee,
+      name: "ins",
+      href: "https://www.instagram.com/shu_kagi",
+      icon: BsInstagram,
     },
   ],
   footerLinks: [
-    { name: "email", href: "mailto:chaolai.1082@gmail.com", icon: MdEmail },
+    { name: "email", href: "mailto:shu.kagift@gmail.com", icon: MdEmail },
     {
       name: "github",
-      href: "https://github.com/chaotic-justice/",
+      href: OPEN_SOURCE_URL,
       icon: BsGithub,
     },
     {
-      name: "buyMeCoffee",
-      href: "https://lichess.org/@/soft-orca",
-      icon: SiBuymeacoffee,
-    },
-    {
-      name: "spotify",
-      href: "https://open.spotify.com/user/l7yw167zb9vylsyjbux550a2c",
-      icon: BsSpotify,
+      name: "ins",
+      href: "https://www.instagram.com/shu_kagi",
+      icon: BsInstagram,
     },
   ],
 };
@@ -82,6 +68,16 @@ export const siteConfig: SiteConfig = {
     creator: baseSiteConfig.creator,
   },
 };
+
+
+
+
+
+
+
+
+
+
 
 
 

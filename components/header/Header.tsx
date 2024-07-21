@@ -1,17 +1,14 @@
 "use client";
 import HeaderLinks from "@/components/header/HeaderLinks";
 import { LangSwitcher } from "@/components/header/LangSwitcher";
-import { siteConfig } from "@/config/site";
 import { MenuIcon } from "lucide-react";
-import { useLocale, useTranslations } from "next-intl";
-import Image from "next/image";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 
 const Header = () => {
-  const locale = useLocale();
-  const t = useTranslations("Header.links");
+  const t = useTranslations("Header");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -20,27 +17,20 @@ const Header = () => {
         <div className="flex items-center md:gap-x-12">
           <Link
             href="/"
-            aria-label="Cave Dwellers"
-            title="Cave Dwellers"
+            aria-label="shukagi"
+            title="shukagi"
             className="flex items-center space-x-1 font-bold"
           >
-            <Image
-              alt={siteConfig.name}
-              src="/logo.svg"
-              className="w-8 h-8"
-              width={32}
-              height={32}
-            />
             <span className="text-gray-950 dark:text-gray-300 hidden md:block">
-              Cave Dwellers
+              {t("title")}
             </span>
           </Link>
         </div>
 
         <ul className="hidden items-center gap-6 md:flex">
           {new Array(2).fill(null).map((_, i) => {
-            const itemLabel = t(`item${i}.label`);
-            const itemLink = t(`item${i}.link`);
+            const itemLabel = t(`links.item${i}.label`);
+            const itemLink = t(`links.item${i}.link`);
             return (
               <li key={i}>
                 <Link
@@ -78,17 +68,10 @@ const Header = () => {
                   <div>
                     <Link
                       href="/"
-                      aria-label="Cave Dwellers"
-                      title="Cave Dwellers"
+                      aria-label="shukagi"
+                      title="shukagi"
                       className="inline-flex items-center"
                     >
-                      <Image
-                        alt={siteConfig.name}
-                        src="/logo.svg"
-                        className="w-8 h-8"
-                        width={32}
-                        height={32}
-                      />
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-950 dark:text-gray-300">
                         Landing Page
                       </span>
@@ -145,6 +128,18 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

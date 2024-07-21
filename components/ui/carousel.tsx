@@ -120,6 +120,10 @@ const Carousel = React.forwardRef<
       };
     }, [api, onSelect]);
 
+    const count = api?.scrollSnapList();
+    const nodes = api?.slidesInView();
+    console.log("count at cara:", count, nodes);
+
     return (
       <CarouselContext.Provider
         value={{
@@ -198,9 +202,7 @@ const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
 >(({ className, variant = "outline", size = "icon", ...props }, ref) => {
-  const { orientation, scrollPrev, canScrollPrev, api } = useCarousel();
-  const count = api?.scrollSnapList()?.length;
-  console.log("count", count);
+  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
     <Button
@@ -291,4 +293,9 @@ export {
   CarouselPrevious,
   type CarouselApi,
 };
+
+
+
+
+
 

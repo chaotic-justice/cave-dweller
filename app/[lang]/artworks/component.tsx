@@ -34,7 +34,7 @@ const ArtworkList = ({
             if (img) arr.push(img.imgSrc);
           });
           return (
-            <div key={artwork?.node?.id} className="pb-0 md:pb-3">
+            <div key={artwork?.node?.id} className="pb-2 md:pb-1">
               <Link href={`/artworks/${match && match[1]}`}>
                 {arr.length === 1 ? (
                   <Image
@@ -56,15 +56,13 @@ const ArtworkList = ({
                     <CarouselContent>
                       {arr.map((item, index) => (
                         <CarouselItem key={index}>
-                          <div className="p-1">
-                            <Image
-                              src={item || "/placeholder.svg"}
-                              alt="Artwork"
-                              width={900}
-                              height={600}
-                              className="w-full h-[600px] object-cover"
-                            />
-                          </div>
+                          <Image
+                            src={item || "/placeholder.svg"}
+                            alt="Artwork"
+                            width={900}
+                            height={600}
+                            className="w-full h-[600px] object-cover"
+                          />
                         </CarouselItem>
                       ))}
                     </CarouselContent>
@@ -80,5 +78,7 @@ const ArtworkList = ({
 };
 
 export default ArtworkList;
+
+
 
 

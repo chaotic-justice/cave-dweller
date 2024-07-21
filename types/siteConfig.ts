@@ -26,7 +26,6 @@ export type SiteConfig = {
   authors: AuthorsConfig[];
   creator: string;
   openSourceURL?: string;
-  ogImage: string;
   headerLinks: Link[];
   footerLinks: Link[];
   metadataBase: URL | string | undefined;
@@ -54,4 +53,6 @@ export type SiteConfig = {
     creator: string;
   };
 };
+
+
 
