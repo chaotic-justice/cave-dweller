@@ -8,6 +8,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { ArtworkQuery } from "@/tina/__generated__/types";
+import { format } from "date-fns";
 import Image from "next/image";
 import { useTina } from "tinacms/dist/react";
 
@@ -31,6 +32,11 @@ const Artwork = (props: Props) => {
   artwork?.additionalImgs?.forEach((img) => {
     if (img) arr.push(img.imgSrc);
   });
+  const date = new Date(artwork.date || "");
+  let formattedDate = "";
+  if (!isNaN(date.getTime())) {
+    formattedDate = format(date, "MMM dd, yyyy");
+  }
 
   return (
     <div className="flex flex-col items-center justify-center bg-background">
@@ -78,18 +84,34 @@ const Artwork = (props: Props) => {
                 </>
               )}
             </Carousel>
+            <div className="flex items-center justify-center mt-2 mb-8 sm:mb-12">
+              {artwork.author && (
+                <>
+                  <div className="flex-shrink-0 mr-4">
+                    <Image
+                      className="h-14 w-14 object-cover rounded-full shadow-sm"
+                      src={artwork.author.avatar || "/placeholder.svg"}
+                      alt={artwork.author.name}
+                      width={500}
+                      height={500}
+                    />
+                  </div>
+                  <p className="text-base font-medium text-gray-600 group-hover:text-gray-800">
+                    {artwork.author.name}
+                  </p>
+                  <span className="font-bold text-gray-200 mx-2">—</span>
+                </>
+              )}
+              <p className="text-base text-gray-400 group-hover:text-gray-500">
+                {formattedDate}
+              </p>
+            </div>
             <div className="p-6 sm:p-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground">
                 {artwork.title}
               </h2>
-              <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                {artwork.date}
-              </p>
               <p className="text-card-foreground text-base sm:text-lg mt-4">
                 {artwork.description}
-              </p>
-              <p className="text-muted-foreground text-sm sm:text-base mt-2">
-                By {artwork.author?.name || "unknown artist"}
               </p>
             </div>
           </div>
@@ -100,6 +122,30 @@ const Artwork = (props: Props) => {
 };
 
 export default Artwork;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

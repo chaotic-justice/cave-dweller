@@ -3,7 +3,6 @@ import { IconType } from "react-icons";
 export type AuthorsConfig = {
   name: string;
   url: string;
-  twitter?: string;
 };
 export type ProductLink = {
   url: string;
@@ -53,6 +52,7 @@ export type SiteConfig = {
     creator: string;
   };
 };
+
 
 
 

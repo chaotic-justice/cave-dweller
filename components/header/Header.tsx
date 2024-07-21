@@ -73,7 +73,7 @@ const Header = () => {
                       className="inline-flex items-center"
                     >
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-950 dark:text-gray-300">
-                        Landing Page
+                        shukagi
                       </span>
                     </Link>
                   </div>
@@ -91,8 +91,8 @@ const Header = () => {
                 <nav>
                   <ul className="space-y-4">
                     {new Array(2).fill(null).map((_, i) => {
-                      const itemLabel = t(`item${i}.label`);
-                      const itemLink = t(`item${i}.link`);
+                      const itemLabel = t(`links.item${i}.label`);
+                      const itemLink = t(`links.item${i}.link`);
                       return (
                         <li key={itemLabel}>
                           <Link
@@ -128,6 +128,7 @@ const Header = () => {
 };
 
 export default Header;
+
 
 
 

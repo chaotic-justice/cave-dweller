@@ -1,7 +1,6 @@
 import { SiteConfig } from "@/types/siteConfig";
-import { BsGithub, BsInstagram, BsSpotify } from "react-icons/bs";
+import { BsGithub, BsInstagram } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import { SiBuymeacoffee } from "react-icons/si";
 
 const OPEN_SOURCE_URL = "https://github.com/chaotic-justice/cave-dweller";
 
@@ -68,6 +67,7 @@ export const siteConfig: SiteConfig = {
     creator: baseSiteConfig.creator,
   },
 };
+
 
 
 
