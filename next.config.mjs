@@ -1,17 +1,11 @@
-import createNextIntlPlugin from "next-intl/plugin";
+import createNextIntlPlugin from "next-intl/plugin"
 
-const withNextIntl = createNextIntlPlugin("./lib/i18n.ts");
+const withNextIntl = createNextIntlPlugin("./lib/i18n.ts")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "handcraftedfarmers.com",
-        port: "",
-        pathname: "/cdn/shop/files/**",
-      },
       {
         protocol: "https",
         hostname: "assets.tina.io",
@@ -22,10 +16,11 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/en/admin",
+        source: "/admin",
         destination: "/admin/index.html",
+        locale: false,
       },
-    ];
+    ]
   },
   async redirects() {
     return [
@@ -35,17 +30,8 @@ const nextConfig = {
         destination: "/en",
         permanent: false,
       },
-      // {
-      //   source: "/en",
-      //   destination: "/en/artworks",
-      //   locale: false,
-      //   permanent: false,
-      // },
-    ];
+    ]
   },
-};
+}
 
-export default withNextIntl(nextConfig);
-
-
-
+export default withNextIntl(nextConfig)

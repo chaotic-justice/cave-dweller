@@ -7,7 +7,7 @@ const Artwork: Collection = {
   format: "mdx",
   ui: {
     router: ({ document }) => {
-      return `/${document._sys.breadcrumbs.join("/")}`;
+      return `artworks/${document._sys.breadcrumbs.join("/")}`;
     },
   },
   fields: [
@@ -73,6 +73,7 @@ const Artwork: Collection = {
 };
 
 export default Artwork;
+
 
 
 

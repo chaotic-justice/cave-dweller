@@ -3,17 +3,15 @@ import client from "@/tina/__generated__/client";
 import { notFound } from "next/navigation";
 
 const page = async ({
-  params: { filename, lang },
+  params: { filename },
 }: {
-  params: { filename: string; lang: string };
+  params: { filename: string };
 }) => {
-  console.log("lang on author", lang);
   let res = undefined;
   try {
     res = await client.queries.author({
-      relativePath: `${lang}/${filename}.md`,
+      relativePath: `${filename}.md`,
     });
-    console.log("nested route.");
   } catch (error) {
     console.error(res?.errors, error);
     return notFound();
@@ -23,4 +21,5 @@ const page = async ({
 };
 
 export default page;
+
 
