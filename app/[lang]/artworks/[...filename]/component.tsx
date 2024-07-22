@@ -1,23 +1,18 @@
-"use client";
+"use client"
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { ArtworkQuery } from "@/tina/__generated__/types";
-import { format } from "date-fns";
-import Image from "next/image";
-import { useTina } from "tinacms/dist/react";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
+import { ArtworkQuery } from "@/tina/__generated__/types"
+import { format } from "date-fns"
+import Image from "next/image"
+import { useTina } from "tinacms/dist/react"
 
 interface Props {
-  query: string;
+  query: string
   variables: {
-    relativePath: string;
-  };
-  data: ArtworkQuery;
+    relativePath: string
+  }
+  data: ArtworkQuery
+  lang: string
 }
 
 const Artwork = (props: Props) => {
@@ -27,15 +22,17 @@ const Artwork = (props: Props) => {
     query: props.query,
     variables: props.variables,
     data: props.data,
-  });
-  const arr = [artwork?.heroImg];
-  artwork?.additionalImgs?.forEach((img) => {
-    if (img) arr.push(img.imgSrc);
-  });
-  const date = new Date(artwork.date || "");
-  let formattedDate = "";
+  })
+  const arr = artwork?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
+  const date = new Date(artwork.date || "")
+  let formattedDate = ""
   if (!isNaN(date.getTime())) {
-    formattedDate = format(date, "MMM dd, yyyy");
+    formattedDate = format(date, "MMM dd, yyyy")
+  }
+  const { varcharBlocks } = artwork
+  let varcharBlock = varcharBlocks?.find((block) => block?.lang === props.lang)
+  if (!varcharBlock && varcharBlocks && varcharBlocks?.length > 0) {
+    varcharBlock = varcharBlocks[0]
   }
 
   return (
@@ -43,13 +40,7 @@ const Artwork = (props: Props) => {
       {!artwork ? (
         <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
           <div className="bg-card rounded-lg overflow-hidden shadow-lg animate-pulse">
-            <Image
-              src={"/placeholder.svg"}
-              alt="placeholder"
-              width={900}
-              height={600}
-              className="w-full h-[600px] object-cover bg-muted"
-            />
+            <Image src={"/placeholder.svg"} alt="placeholder" width={900} height={600} className="w-full h-[600px] object-cover bg-muted" />
             <div className="p-6 sm:p-8 space-y-4">
               <div className="h-6 bg-muted rounded w-1/2" />
               <div className="h-4 bg-muted rounded w-1/3" />
@@ -66,13 +57,7 @@ const Artwork = (props: Props) => {
                 {arr.map((item, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
-                      <Image
-                        src={item || "/placeholder.svg"}
-                        alt="Artwork"
-                        width={900}
-                        height={600}
-                        className="w-full h-[600px] object-cover"
-                      />
+                      <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} className="w-full h-[600px] object-cover" />
                     </div>
                   </CarouselItem>
                 ))}
@@ -88,75 +73,23 @@ const Artwork = (props: Props) => {
               {artwork.author && (
                 <>
                   <div className="flex-shrink-0 mr-4">
-                    <Image
-                      className="h-14 w-14 object-cover rounded-full shadow-sm"
-                      src={artwork.author.avatar || "/placeholder.svg"}
-                      alt={artwork.author.name}
-                      width={500}
-                      height={500}
-                    />
+                    <Image className="h-14 w-14 object-cover rounded-full shadow-sm" src={artwork.author.avatar || "/placeholder.svg"} alt={artwork.author.name} width={500} height={500} />
                   </div>
-                  <p className="text-base font-medium text-gray-600 group-hover:text-gray-800">
-                    {artwork.author.name}
-                  </p>
+                  <p className="text-base font-medium text-gray-600 group-hover:text-gray-800">{artwork.author.name}</p>
                   <span className="font-bold text-gray-200 mx-2">—</span>
                 </>
               )}
-              <p className="text-base text-gray-400 group-hover:text-gray-500">
-                {formattedDate}
-              </p>
+              <p className="text-base text-gray-400 group-hover:text-gray-500">{formattedDate}</p>
             </div>
             <div className="p-6 sm:p-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground">
-                {artwork.title}
-              </h2>
-              <p className="text-card-foreground text-base sm:text-lg mt-4">
-                {artwork.description}
-              </p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground">{varcharBlock?.subtitle}</h2>
+              <p className="text-card-foreground text-base sm:text-lg mt-4">{varcharBlock?.description}</p>
             </div>
           </div>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Artwork;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Artwork
