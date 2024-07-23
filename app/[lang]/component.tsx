@@ -25,7 +25,7 @@ const ArtworkList = ({
           const arr = artwork?.node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
           return (
             <div key={artwork?.node?.id} className="pb-2 md:pb-1">
-              <Link href={`/artworks/${match && match[1]}`}>
+              <Link href={`/${match && match[1]}`}>
                 {arr.length === 0 ? (
                   <Image width={500} height={400} src={"/placeholder.svg"} alt={artwork?.node?.title!} />
                 ) : (
