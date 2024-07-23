@@ -34,6 +34,11 @@ const Artwork = (props: Props) => {
   if (!varcharBlock && varcharBlocks && varcharBlocks?.length > 0) {
     varcharBlock = varcharBlocks[0]
   }
+  const { author } = artwork
+  let displayName = author?.displayNames?.find((name) => name?.lang === props.lang)
+  if (!displayName && author?.displayNames && author?.displayNames?.length > 0) {
+    displayName = author?.displayNames[0]
+  }
 
   return (
     <div className="flex flex-col items-center justify-center bg-background">
@@ -73,9 +78,9 @@ const Artwork = (props: Props) => {
               {artwork.author && (
                 <>
                   <div className="flex-shrink-0 mr-4">
-                    <Image className="h-14 w-14 object-cover rounded-full shadow-sm" src={artwork.author.avatar || "/placeholder.svg"} alt={artwork.author.name} width={500} height={500} />
+                    <Image className="h-14 w-14 object-cover rounded-full shadow-sm" src={artwork.author.avatar || "/placeholder.svg"} alt={displayName?.value || "avatar"} width={500} height={500} />
                   </div>
-                  <p className="text-base font-medium text-gray-600 group-hover:text-gray-800">{artwork.author.name}</p>
+                  <p className="text-base font-medium text-gray-600 group-hover:text-gray-800">{displayName?.value}</p>
                   <span className="font-bold text-gray-200 mx-2">—</span>
                 </>
               )}

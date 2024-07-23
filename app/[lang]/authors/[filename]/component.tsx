@@ -19,6 +19,11 @@ const Author = (props: Props) => {
     variables: props.variables,
     data: props.data,
   });
+  const obj = {
+    avatar: author?.avatar,
+    title: author?.title,
+    ...author.displayNames,
+  }
 
   return (
     <div>
@@ -28,11 +33,11 @@ const Author = (props: Props) => {
             backgroundColor: "lightgray",
           }}
         >
-          {JSON.stringify(author, null, 2)}
+          {JSON.stringify(obj, null, 2)}
         </pre>
       </code>
     </div>
-  );
+  )
 };
 
 export default Author;

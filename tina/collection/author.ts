@@ -1,4 +1,24 @@
-import type { Collection } from "tinacms";
+import type { Collection, Template } from "tinacms"
+
+const DisplayNameSchema: Template = {
+  name: "displayName",
+  label: "Display Name",
+  fields: [
+    {
+      label: "Lang",
+      name: "lang",
+      type: "string",
+      options: ["ja", "en"],
+      required: true,
+    },
+    {
+      name: "value",
+      label: "Value",
+      type: "string",
+      required: true,
+    },
+  ],
+}
 
 const Author: Collection = {
   label: "Authors",
@@ -7,13 +27,13 @@ const Author: Collection = {
   format: "md",
   ui: {
     router: ({ document }) => {
-      return `/authors/${document._sys.breadcrumbs.join("/")}`;
+      return `/authors/${document._sys.breadcrumbs.join("/")}`
     },
   },
   fields: [
     {
-      label: "Name",
-      name: "name",
+      label: "Title",
+      name: "title",
       type: "string",
       isTitle: true,
       required: true,
@@ -23,8 +43,14 @@ const Author: Collection = {
       name: "avatar",
       type: "image",
     },
+    {
+      type: "object",
+      name: "displayNames",
+      label: "Add two display names, one in [en] one in [ja].",
+      list: true,
+      templates: [DisplayNameSchema],
+    },
   ],
-};
+}
 
-export default Author;
-
+export default Author

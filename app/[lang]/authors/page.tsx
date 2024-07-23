@@ -1,11 +1,15 @@
 import AuthorsList from "@/app/[lang]/authors/component";
 import client from "@/tina/__generated__/client";
 
-const page = async () => {
-  const connection = await client.queries.authorConnection();
+type Props = {
+  lang: string
+}
 
-  return <AuthorsList {...connection} />;
-};
+const page = async ({ lang }: Props) => {
+  const connection = await client.queries.authorConnection()
+
+  return <AuthorsList {...connection} lang={lang} />
+}
 
 export default page;
 
