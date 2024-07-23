@@ -1,7 +1,7 @@
 "use client"
 
+import { Link } from "@/lib/navigation"
 import { AuthorConnectionQuery } from "@/tina/__generated__/types"
-import Link from "next/link"
 
 interface Props {
   query: string

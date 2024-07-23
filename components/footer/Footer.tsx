@@ -1,7 +1,7 @@
 import FooterLinks from "@/components/footer/FooterLinks";
 import LangLinks from "@/components/footer/LangLinks";
 import { siteConfig } from "@/config/site";
-import Link from "next/link";
+import { Link } from "@/lib/navigation"
 
 const Footer = () => {
   const d = new Date();

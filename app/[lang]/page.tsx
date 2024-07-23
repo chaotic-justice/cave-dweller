@@ -1,11 +1,7 @@
-import ArtworkList from "@/app/[lang]/component";
-import client from "@/tina/__generated__/client";
+import { redirect } from "next/navigation"
 
-const page = async () => {
-  const connection = await client.queries.artworkConnection();
+const page = () => {
+  redirect("/works")
+}
 
-  return <ArtworkList {...connection} />;
-};
-
-export default page;
-
+export default page

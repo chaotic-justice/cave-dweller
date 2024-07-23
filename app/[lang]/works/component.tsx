@@ -25,11 +25,7 @@ const ArtworkList = ({
           const arr = artwork?.node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
           return (
             <div key={artwork?.node?.id} className="pb-2 md:pb-1">
-<<<<<<<< HEAD:app/[lang]/component.tsx
-              <Link href={`/${match && match[1]}`}>
-========
               <Link href={`/works/${match && match[1]}`}>
->>>>>>>> develop:app/[lang]/works/component.tsx
                 {arr.length === 0 ? (
                   <Image width={500} height={400} src={"/placeholder.svg"} alt={artwork?.node?.title!} />
                 ) : (
