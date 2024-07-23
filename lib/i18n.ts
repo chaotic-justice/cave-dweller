@@ -9,8 +9,8 @@ export const localeNames: any = {
   ar: "🇸🇦 العربية",
   es: "🇪🇸 Español",
   ru: "🇷🇺 Русский",
-};
-export const defaultLocale = "en";
+}
+export const defaultLocale = "en"
 
 // // If you wish to automatically redirect users to a URL that matches their browser's language setting,
 // // you can use the `getLocale` to get the browser's language.
@@ -41,25 +41,21 @@ export const defaultLocale = "en";
 //   return dictionaries[locale]();
 // };
 
-import { LocalePrefix } from "next-intl/routing";
-import { getRequestConfig } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { LocalePrefix } from "next-intl/routing"
+import { getRequestConfig } from "next-intl/server"
+import { notFound } from "next/navigation"
 
 // Can be imported from a shared config
-export const locales = ["en", "ja"];
+export const locales = ["en", "ja"]
 
-export const localePrefix: LocalePrefix<typeof locales> = "always";
+export const localePrefix: LocalePrefix<typeof locales> = "always"
 
 export default getRequestConfig(async ({ locale }) => {
   // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
+  if (!locales.includes(locale as any)) notFound()
 
   return {
     messages: (await import(`../messages/${locale}.json`)).default,
-  };
-});
-
-
-
-
+  }
+})
 

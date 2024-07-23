@@ -120,10 +120,6 @@ const Carousel = React.forwardRef<
       };
     }, [api, onSelect]);
 
-    const count = api?.scrollSnapList();
-    const nodes = api?.slidesInView();
-    console.log("count at cara:", count, nodes);
-
     return (
       <CarouselContext.Provider
         value={{
@@ -260,9 +256,7 @@ const CarouselIndicators = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  const { api } = useCarousel();
-  const count = api?.scrollSnapList()?.length;
-  console.log("count", count);
+  const { api } = useCarousel()
   return (
     <div
       ref={ref}
