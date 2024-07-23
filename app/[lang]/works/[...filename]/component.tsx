@@ -62,7 +62,7 @@ const Artwork = (props: Props) => {
                 {arr.map((item, index) => (
                   <CarouselItem key={index}>
                     <div className="p-1">
-                      <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} className="w-full h-[600px] object-cover" />
+                      <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} />
                     </div>
                   </CarouselItem>
                 ))}
@@ -74,7 +74,7 @@ const Artwork = (props: Props) => {
                 </>
               )}
             </Carousel>
-            <div className="flex items-center justify-center mt-2 mb-8 sm:mb-12">
+            {/* <div className="flex items-center justify-center mt-2 mb-8 sm:mb-12">
               {artwork.author && (
                 <>
                   <div className="flex-shrink-0 mr-4">
@@ -85,7 +85,7 @@ const Artwork = (props: Props) => {
                 </>
               )}
               <p className="text-base text-gray-400 group-hover:text-gray-500">{formattedDate}</p>
-            </div>
+            </div> */}
             <div className="p-6 sm:p-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground">{varcharBlock?.subtitle}</h2>
               <p className="text-card-foreground text-base sm:text-lg mt-4">{varcharBlock?.description}</p>
