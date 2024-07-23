@@ -22,6 +22,7 @@ const AuthorsList = ({
         {edges?.map((author) => {
           const pattern = /\/([^/]+)\.md$/
           const match = (author?.node?.id || "").match(pattern)
+          console.log("author", author?.node?.displayNames)
           let displayName = author?.node?.displayNames?.find((name) => name?.lang === lang)
           if (!displayName && author?.node?.displayNames && author?.node?.displayNames?.length > 0) {
             displayName = author?.node?.displayNames[0]

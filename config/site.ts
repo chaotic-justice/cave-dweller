@@ -7,7 +7,7 @@ const OPEN_SOURCE_URL = "https://github.com/chaotic-justice/cave-dweller";
 const baseSiteConfig = {
   name: "shukagi",
   description: "shukagi's arts gallery site",
-  url: "https://landingpage.weijunext.com",
+  url: "https://kagi.vercel.app",
   metadataBase: "/",
   keywords: ["shukagi", "artworks", "shukagi artist", "shu-kagi"],
   authors: [
@@ -23,10 +23,10 @@ const baseSiteConfig = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   nextThemeColor: "light", // next-theme option: system | dark | light
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon-16x16.png",
-  },
+  // icons: {
+  //   icon: "/favicon.ico",
+  //   shortcut: "/favicon-16x16.png",
+  // },
   headerLinks: [
     {
       name: "ins",
@@ -47,7 +47,7 @@ const baseSiteConfig = {
       icon: BsInstagram,
     },
   ],
-};
+}
 
 export const siteConfig: SiteConfig = {
   ...baseSiteConfig,
