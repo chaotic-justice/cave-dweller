@@ -1,32 +1,16 @@
 {
-  "CompanyStats": {
-    "yearsOfService": {
-      "title": "Years of service",
-      "value": "34"
-    },
-    "happyClients": {
-      "title": "Happy clients",
-      "value": "1.000+"
-    },
-    "partners": {
-      "title": "Products",
-      "value": "5.000+"
-    }
-  },
   "Header": {
     "title": "shukagi",
     "links": {
       "item0": {
-        "label": "Authors",
-        "link": "/authors"
-      },
-      "item1": {
-        "label": "Artworks",
-        "link": "/artworks"
+        "label": "cv/contact",
+        "link": "/about"
       }
     }
+  },
+  "About": {
+    "line0": "朱 家宜 手描きアニメーションで無意識の世界を描く。",
+    "line1": "2022年京都市立芸術大学修士卒業。日頃見る夢や瞑想をヒントに、アニメーションを主な手法として用いて、鑑賞者と作家自身の 無意識を写し出す表現を試みる。一枚の絵の持つ素材感と意味に焦点を当て、「動く絵」として アニメーションを見せる。2021年以降、展示空間に合わせたインスタレーションとして作品を再構成するようになる。",
+    "line2": "中央線芸術祭2022「ともにある場所へ」(KOGANEI ART SPOTシャトー東京)に選抜されるほか、グループ展「〇〇が連続された時」（京都精華大学ギャラリーテラス 京都）をキュレーションするなど。"
   }
 }
-
-
-

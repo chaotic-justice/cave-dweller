@@ -1,4 +1,4 @@
-import Artwork from "@/app/[lang]/artworks/[...filename]/component"
+import Artwork from "@/app/[lang]/[...filename]/component"
 import client from "@/tina/__generated__/client"
 import { notFound } from "next/navigation"
 

@@ -22,16 +22,6 @@ const nextConfig = {
       },
     ]
   },
-  async redirects() {
-    return [
-      {
-        source: "/",
-        locale: false,
-        destination: "/en",
-        permanent: false,
-      },
-    ]
-  },
 }
 
 export default withNextIntl(nextConfig)

@@ -45,7 +45,7 @@ const Artwork: Collection = {
   format: "mdx",
   ui: {
     router: ({ document }) => {
-      return `artworks/${document._sys.breadcrumbs.join("/")}`
+      return `/${document._sys.breadcrumbs.join("/")}`
     },
   },
   fields: [

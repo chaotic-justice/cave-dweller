@@ -34,10 +34,13 @@ export const viewport: Viewport = {
   themeColor: siteConfig.themeColors,
 };
 
-type Props = {
-  children: React.ReactNode;
-  params: { lang: string };
-};
+export type CoreParams = {
+  params: { lang: string }
+}
+
+type Props = CoreParams & {
+  children: React.ReactNode
+}
 
 export default async function RootLayout({
   children,
