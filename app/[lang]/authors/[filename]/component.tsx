@@ -1,14 +1,14 @@
 "use client";
 
-import { AuthorQuery } from "@/tina/__generated__/types";
-import { useTina } from "tinacms/dist/react";
+import { AuthorQuery } from "@/tina/__generated__/types"
+import { useTina } from "tinacms/dist/react"
 
 interface Props {
-  query: string;
+  query: string
   variables: {
-    relativePath: string;
-  };
-  data: AuthorQuery;
+    relativePath: string
+  }
+  data: AuthorQuery
 }
 
 const Author = (props: Props) => {
@@ -18,7 +18,7 @@ const Author = (props: Props) => {
     query: props.query,
     variables: props.variables,
     data: props.data,
-  });
+  })
   const obj = {
     avatar: author?.avatar,
     title: author?.title,
@@ -26,7 +26,7 @@ const Author = (props: Props) => {
   }
 
   return (
-    <div>
+    <>
       <code>
         <pre
           style={{
@@ -36,9 +36,9 @@ const Author = (props: Props) => {
           {JSON.stringify(obj, null, 2)}
         </pre>
       </code>
-    </div>
+    </>
   )
-};
+}
 
 export default Author;
 
