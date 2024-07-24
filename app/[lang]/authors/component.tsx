@@ -2,6 +2,7 @@
 
 import { Link } from "@/lib/navigation"
 import { AuthorConnectionQuery } from "@/tina/__generated__/types"
+import { useState } from "react"
 
 interface Props {
   query: string
@@ -39,5 +40,3 @@ const AuthorsList = ({
     </div>
   )
 }
-
-export default AuthorsList

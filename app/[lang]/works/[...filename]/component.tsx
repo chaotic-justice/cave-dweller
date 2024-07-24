@@ -4,6 +4,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import { ArtworkQuery } from "@/tina/__generated__/types"
 import { format } from "date-fns"
 import Image from "next/image"
+import { useState, MouseEvent, useRef, useEffect } from "react"
 import { useTina } from "tinacms/dist/react"
 
 interface Props {
@@ -29,16 +30,18 @@ const Artwork = (props: Props) => {
   if (!isNaN(date.getTime())) {
     formattedDate = format(date, "MMM dd, yyyy")
   }
-  const { varcharBlocks } = artwork
-  let varcharBlock = varcharBlocks?.find((block) => block?.lang === props.lang)
-  if (!varcharBlock && varcharBlocks && varcharBlocks?.length > 0) {
-    varcharBlock = varcharBlocks[0]
-  }
+  // let varcharBlock = varcharBlocks?.find((block) => block?.lang === props.lang)
+  // if (!varcharBlock && varcharBlocks && varcharBlocks?.length > 0) {
+  //   varcharBlock = varcharBlocks[0]
+  // }
   const { author } = artwork
   let displayName = author?.displayNames?.find((name) => name?.lang === props.lang)
   if (!displayName && author?.displayNames && author?.displayNames?.length > 0) {
     displayName = author?.displayNames[0]
   }
+
+  const [showPrev, setShowPrev] = useState(false)
+  const [showNext, setShowNext] = useState(false)
 
   return (
     <div className="flex flex-col items-center justify-center bg-background">
@@ -61,16 +64,20 @@ const Artwork = (props: Props) => {
               <CarouselContent>
                 {arr.map((item, index) => (
                   <CarouselItem key={index}>
-                    <div className="p-1">
-                      <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} />
+                    <div className="flex">
+                      <div className="p-8" onMouseOver={() => setShowPrev(true)} onMouseLeave={() => setShowPrev(false)}></div>
+                      <div className="flex-1 z-10">
+                        <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} />
+                      </div>
+                      <div className="p-8" onMouseOver={() => setShowNext(true)} onMouseLeave={() => setShowNext(false)}></div>
                     </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
               {arr.length > 1 && (
                 <>
-                  <CarouselPrevious />
-                  <CarouselNext />
+                  <CarouselPrevious className={`${!showPrev && "opacity-25"}`} />
+                  <CarouselNext className={`${!showNext && "opacity-25"}`} />
                 </>
               )}
             </Carousel>
@@ -87,8 +94,17 @@ const Artwork = (props: Props) => {
               <p className="text-base text-gray-400 group-hover:text-gray-500">{formattedDate}</p>
             </div> */}
             <div className="p-6 sm:p-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-card-foreground">{varcharBlock?.subtitle}</h2>
-              <p className="text-card-foreground text-base sm:text-lg mt-4">{varcharBlock?.description}</p>
+              {/* <h2 className="text-2xl sm:text-3xl font-semibold text-card-foreground">{varcharBlock?.subtitle}</h2> */}
+              {artwork.varcharBlocks
+                ?.filter((block) => block?.lang === props.lang)
+                .map((block, i) => {
+                  return (
+                    <div key={i} className="flex flex-col ">
+                      <p className="text-xl font-medium leading-relaxed sm:text-2xl first-of-type:mt-5">{block?.subtitle}</p>
+                      <p className="text-card-foreground text-base sm:text-lg ">{block?.description}</p>
+                    </div>
+                  )
+                })}
             </div>
           </div>
         </div>
