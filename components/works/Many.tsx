@@ -11,7 +11,7 @@ interface Props {
   data: ArtworkConnectionQuery
 }
 
-const ArtworkList = ({
+const Many = ({
   data: {
     artworkConnection: { edges },
   },
@@ -22,6 +22,7 @@ const ArtworkList = ({
         {edges?.map((artwork) => {
           const pattern = /\/([^/]+)\.mdx$/
           const match = (artwork?.node?.id || "").match(pattern)
+          if (match && match[1] === "landing") return null
           const arr = artwork?.node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
           return (
             <div key={artwork?.node?.id} className="pb-2 md:pb-1">
@@ -29,15 +30,7 @@ const ArtworkList = ({
                 {arr.length === 0 ? (
                   <Image width={500} height={400} src={"/placeholder.svg"} alt={artwork?.node?.title!} />
                 ) : (
-                  <Carousel
-                    className="w-full "
-                    opts={{ loop: true }}
-                    plugins={[
-                      Autoplay({
-                        delay: 2350,
-                      }),
-                    ]}
-                  >
+                  <Carousel className="w-full ">
                     <CarouselContent>
                       {arr.map((item, index) => (
                         <CarouselItem key={index}>
@@ -56,4 +49,4 @@ const ArtworkList = ({
   )
 }
 
-export default ArtworkList
+export default Many

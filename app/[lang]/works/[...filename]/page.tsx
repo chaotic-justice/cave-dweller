@@ -1,4 +1,4 @@
-import Artwork from "@/app/[lang]/works/[...filename]/component"
+import Single from "@/components/works/Single"
 import client from "@/tina/__generated__/client"
 import { notFound } from "next/navigation"
 
@@ -13,7 +13,7 @@ const ArtworkPage = async ({ params: { filename, lang } }: { params: { filename:
     return notFound()
   }
 
-  return <Artwork {...res} lang={lang} />
+  return <Single {...res} lang={lang} />
 }
 
 export default ArtworkPage

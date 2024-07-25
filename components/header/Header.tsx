@@ -15,13 +15,13 @@ const Header = () => {
     <header className="py-10 px-4 sm:px-6 lg:px-8">
       <nav className="z-50 flex justify-between">
         <div className="flex items-center md:gap-x-12">
-          <Link href="/works" aria-label="shukagi" title="shukagi" className="flex items-center space-x-1 font-bold">
+          <Link href="/" aria-label="landing page" title="homepage" className="flex items-center space-x-1 font-bold">
             <span className="text-gray-950 dark:text-gray-300 hidden md:block">{t("title")}</span>
           </Link>
         </div>
 
         <ul className="hidden items-center gap-6 md:flex">
-          {new Array(1).fill(null).map((_, i) => {
+          {new Array(2).fill(null).map((_, i) => {
             const itemLabel = t(`links.item${i}.label`)
             const itemLink = t(`links.item${i}.link`)
             return (
@@ -61,7 +61,7 @@ const Header = () => {
                 </div>
                 <nav>
                   <ul className="space-y-4">
-                    {new Array(1).fill(null).map((_, i) => {
+                    {new Array(2).fill(null).map((_, i) => {
                       const itemLabel = t(`links.item${i}.label`)
                       const itemLink = t(`links.item${i}.link`)
                       return (
