@@ -9,18 +9,17 @@ const About = ({ lang }: Props) => {
   const t = useTranslations("About")
 
   return (
-    <div className="flex min-h-lvh items-center justify-center">
+    <div className="flex h-screen items-center">
       <div className="container px-4 md:px-6">
-        <div className="space-y-8">
-          <div className="space-y-4">
-            <p className="mx-auto max-w-[700px] text-medium sm:text-lg animate-fade-in-up">{t("line0")}</p>
-          </div>
-          <div className="space-y-4">
-            <p className="mx-auto max-w-[700px] text-sm sm:text-base">{t("line1")}</p>
-          </div>
-          <div className="space-y-4">
-            <p className="mx-auto max-w-[700px] text-xs sm:text-sm">{t("line2")}</p>
-          </div>
+        <div className="space-y-4">
+          {new Array(3).fill(-1).map((_, i) => {
+            const line = t(`line${i}`)
+            return (
+              <div key={i} className="space-y-4">
+                <p className="text-justify mx-auto sm:max-w-[490px] text-xs/6 sm:text-sm sm:leading-6 tracking-widest">{line}</p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
