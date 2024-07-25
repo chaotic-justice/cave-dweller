@@ -3,12 +3,12 @@
     "title": "朱家宜",
     "links": {
       "item0": {
-        "label": "cv / contact",
-        "link": "/about"
-      },
-      "item1": {
         "label": "works / projects",
         "link": "/works"
+      },
+      "item1": {
+        "label": "cv / contact",
+        "link": "/about"
       }
     }
   },
