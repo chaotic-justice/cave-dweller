@@ -16,7 +16,7 @@ const About = ({ lang }: Props) => {
             const line = t(`line${i}`)
             return (
               <div key={i} className="space-y-4">
-                <p className="text-justify mx-auto sm:max-w-[490px] text-xs/6 sm:text-sm sm:leading-6 tracking-widest">{line}</p>
+                <p className="text-justify mx-auto sm:max-w-[490px] text-xs/6 sm:text-sm sm:leading-6 tracking-widest antialiased">{line}</p>
               </div>
             )
           })}

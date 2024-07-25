@@ -6,7 +6,7 @@ const varcharBlockSchema: Template = {
   ui: {
     defaultItem: {
       subtitle: "20th Century Boys",
-      description: "Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad vasti, distulit. Crudus sub coniuge iam: dea propera sive??",
+      paragraph: "Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad vasti, distulit. Crudus sub coniuge iam: dea propera sive",
     },
   },
   fields: [
@@ -16,8 +16,8 @@ const varcharBlockSchema: Template = {
       type: "string",
     },
     {
-      label: "Description - en",
-      name: "description_en",
+      label: "Paragraph 自然段 - en",
+      name: "paragraph_en",
       type: "string",
       ui: {
         component: "textarea",
@@ -29,8 +29,8 @@ const varcharBlockSchema: Template = {
       type: "string",
     },
     {
-      label: "Description - ja",
-      name: "description_ja",
+      label: "Paragraph 自然段 - ja",
+      name: "paragraph_ja",
       type: "string",
       ui: {
         component: "textarea",
