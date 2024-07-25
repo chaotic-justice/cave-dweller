@@ -8,32 +8,33 @@ const varcharBlockSchema: Template = {
       subtitle: "20th Century Boys",
       description: "Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad vasti, distulit. Crudus sub coniuge iam: dea propera sive??",
     },
-    itemProps: (item) => {
-      return {
-        label: `${item.subtitle} (${item.lang})`,
-      }
-    },
   },
   fields: [
     {
-      label: "Subtitle",
-      name: "subtitle",
+      label: "Subtitle - en",
+      name: "subtitle_en",
       type: "string",
     },
     {
-      label: "Description",
-      name: "description",
+      label: "Description - en",
+      name: "description_en",
       type: "string",
       ui: {
         component: "textarea",
       },
     },
     {
-      label: "Lang",
-      name: "lang",
+      label: "Subtitle - ja",
+      name: "subtitle_ja",
       type: "string",
-      options: ["ja", "en"],
-      required: true,
+    },
+    {
+      label: "Description - ja",
+      name: "description_ja",
+      type: "string",
+      ui: {
+        component: "textarea",
+      },
     },
   ],
 }
@@ -106,7 +107,7 @@ const Artwork: Collection = {
     {
       type: "object",
       name: "varcharBlocks",
-      label: "Add two body blocks, one in [en] one in [ja].",
+      label: "补充文字内容 (Add body blocks)",
       list: true,
       templates: [varcharBlockSchema],
     },
