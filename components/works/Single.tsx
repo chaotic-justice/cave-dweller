@@ -94,10 +94,9 @@ const Single = (props: Props) => {
                 const subtitle = props.lang === "en" ? block?.subtitle_en : block?.subtitle_ja
                 const paragraph = props.lang === "en" ? block?.paragraph_en : block?.paragraph_ja
                 return (
-                  <div key={i} className="flex flex-col [&>:not(:last-child)]:mt-4">
-                    {/* <p className="text-xl font-medium leading-relaxed sm:text-2xl first-of-type:mt-5">{subtitle}</p> */}
-                    <h6 className="">{subtitle}</h6>
-                    <p className="text-card-foreground text-base sm:text-lg ">{paragraph}</p>
+                  <div key={i} className="flex flex-col [&>:not(:last-child)]:mt-6 px-8">
+                    <p className="text-xs/6 sm:text-base font-medium antialiased mb-2">{subtitle}</p>
+                    <p className="text-xs/6 sm:text-base sm:leading-7 tracking-wider antialiased">{paragraph}</p>
                   </div>
                 )
               })}

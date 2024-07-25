@@ -33,11 +33,11 @@ export const viewport: Viewport = {
   themeColor: siteConfig.themeColors,
 };
 
-export type CoreParams = {
+export type CoreProps = {
   params: { lang: string }
 }
 
-type Props = CoreParams & {
+type Props = CoreProps & {
   children: React.ReactNode
 }
 

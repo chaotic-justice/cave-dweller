@@ -1,7 +1,7 @@
 import About from "@/app/[lang]/about/component"
-import { CoreParams } from "@/app/[lang]/layout"
+import { CoreProps } from "@/app/[lang]/layout"
 
-const page = ({ params: { lang } }: CoreParams) => {
+const page = ({ params: { lang } }: CoreProps) => {
   return <About lang={lang} />
 }
 
