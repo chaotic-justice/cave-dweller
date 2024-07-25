@@ -94,14 +94,13 @@ const Artwork = (props: Props) => {
               <p className="text-base text-gray-400 group-hover:text-gray-500">{formattedDate}</p>
             </div> */}
             <div className="p-6 sm:p-8">
-              {/* <h2 className="text-2xl sm:text-3xl font-semibold text-card-foreground">{varcharBlock?.subtitle}</h2> */}
               {artwork.varcharBlocks?.map((block, i) => {
                 const subtitle = props.lang === "en" ? block?.subtitle_en : block?.subtitle_ja
-                const desc = props.lang === "en" ? block?.subtitle_en : block?.subtitle_ja
+                const paragraph = props.lang === "en" ? block?.paragraph_en : block?.paragraph_ja
                 return (
                   <div key={i} className="flex flex-col ">
                     <p className="text-xl font-medium leading-relaxed sm:text-2xl first-of-type:mt-5">{subtitle}</p>
-                    <p className="text-card-foreground text-base sm:text-lg ">{desc}</p>
+                    <p className="text-card-foreground text-base sm:text-lg ">{paragraph}</p>
                   </div>
                 )
               })}
