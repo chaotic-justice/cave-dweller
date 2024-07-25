@@ -16,7 +16,7 @@ interface Props {
   lang: string
 }
 
-const Artwork = (props: Props) => {
+const Single = (props: Props) => {
   const {
     data: { artwork },
   } = useTina({
@@ -30,10 +30,6 @@ const Artwork = (props: Props) => {
   if (!isNaN(date.getTime())) {
     formattedDate = format(date, "MMM dd, yyyy")
   }
-  // let varcharBlock = varcharBlocks?.find((block) => block?.lang === props.lang)
-  // if (!varcharBlock && varcharBlocks && varcharBlocks?.length > 0) {
-  //   varcharBlock = varcharBlocks[0]
-  // }
   const { author } = artwork
   let displayName = author?.displayNames?.find((name) => name?.lang === props.lang)
   if (!displayName && author?.displayNames && author?.displayNames?.length > 0) {
@@ -98,8 +94,9 @@ const Artwork = (props: Props) => {
                 const subtitle = props.lang === "en" ? block?.subtitle_en : block?.subtitle_ja
                 const paragraph = props.lang === "en" ? block?.paragraph_en : block?.paragraph_ja
                 return (
-                  <div key={i} className="flex flex-col ">
-                    <p className="text-xl font-medium leading-relaxed sm:text-2xl first-of-type:mt-5">{subtitle}</p>
+                  <div key={i} className="flex flex-col [&>:not(:last-child)]:mt-4">
+                    {/* <p className="text-xl font-medium leading-relaxed sm:text-2xl first-of-type:mt-5">{subtitle}</p> */}
+                    <h6 className="">{subtitle}</h6>
                     <p className="text-card-foreground text-base sm:text-lg ">{paragraph}</p>
                   </div>
                 )
@@ -112,4 +109,4 @@ const Artwork = (props: Props) => {
   )
 }
 
-export default Artwork
+export default Single

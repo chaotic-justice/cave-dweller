@@ -11,7 +11,7 @@ interface Props {
   data: ArtworkConnectionQuery
 }
 
-const ArtworkList = ({
+const Many = ({
   data: {
     artworkConnection: { edges },
   },
@@ -56,4 +56,4 @@ const ArtworkList = ({
   )
 }
 
-export default ArtworkList
+export default Many
