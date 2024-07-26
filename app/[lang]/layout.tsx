@@ -11,11 +11,18 @@ import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server"
-import { Inter as FontSans } from "next/font/google";
+import { Inter as FontSans, Zen_Kaku_Gothic_Antique } from "next/font/google"
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
+})
+
+const zenKaku = Zen_Kaku_Gothic_Antique({
+  weight: ["300", "400", "500", "700"],
+  style: ["normal"],
+  preload: false,
+  variable: "--font-jp",
 })
 
 export const metadata = {
@@ -31,7 +38,7 @@ export const metadata = {
 }
 export const viewport: Viewport = {
   themeColor: siteConfig.themeColors,
-};
+}
 
 export type CoreProps = {
   params: { lang: string }
@@ -41,25 +48,13 @@ type Props = CoreProps & {
   children: React.ReactNode
 }
 
-export default async function RootLayout({
-  children,
-  params: { lang },
-}: Props) {
-  const messages = await getMessages();
+export default async function RootLayout({ children, params: { lang } }: Props) {
+  const messages = await getMessages()
   return (
     <html lang={lang}>
       <head />
-      <body
-        className={cn(
-          "flex flex-col min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme={siteConfig.nextThemeColor}
-          enableSystem
-        >
+      <body className={cn("flex flex-col min-h-screen bg-background font-sans antialiased", lang === "en" ? `font-sans ${fontSans.variable}` : `font-jp ${zenKaku.variable}`)}>
+        <ThemeProvider attribute="class" defaultTheme={siteConfig.nextThemeColor} enableSystem>
           <NextIntlClientProvider messages={messages}>
             <Header />
             <main className="flex flex-col items-center py-6">{children}</main>
@@ -77,7 +72,7 @@ export default async function RootLayout({
         )}
       </body>
     </html>
-  );
+  )
 }
 
 
