@@ -3,18 +3,20 @@
     "title": "Shu Kagi",
     "links": {
       "item0": {
-        "label": "cv / contact",
-        "link": "/about"
-      },
-      "item1": {
         "label": "works / projects",
         "link": "/works"
+      },
+      "item1": {
+        "label": "cv / contact",
+        "link": "/about"
       }
     }
   },
   "About": {
-    "line0": "朱 家宜 手描きアニメーションで無意識の世界を描く。",
-    "line1": "2022年京都市立芸術大学修士卒業。日頃見る夢や瞑想をヒントに、アニメーションを主な手法として用いて、鑑賞者と作家自身の 無意識を写し出す表現を試みる。一枚の絵の持つ素材感と意味に焦点を当て、「動く絵」として アニメーションを見せる。2021年以降、展示空間に合わせたインスタレーションとして作品を再構成するようになる。",
-    "line2": "中央線芸術祭2022「ともにある場所へ」(KOGANEI ART SPOTシャトー東京)に選抜されるほか、グループ展「〇〇が連続された時」（京都精華大学ギャラリーテラス 京都）をキュレーションするなど。"
+    "line0": "Lives and works in Kyoto\nmail：shu.kagift@gmail.com",
+    "line1": "Drawing inspiration from dreams seen during sleep and from deep contemplation, she uses animation and other techniques to express her ideas. Her work not only originates from her own experiences but also reflects the subconscious world of her audience. She pays close attention to the texture and metaphorical meaning of each individual frame, presenting animation as 'dynamic paintings.' Since 2021, Kagi has been creating works in conjunction with exhibition spaces.",
+    "line2": "She was selected to exhibit at the Center Line Art Festival Tokyo 2022 with the theme 'Toward a Common Place' (KOGANEI ART SPOT Chateau, Tokyo). Additionally, she curated and participated as an artist in the group exhibition 'When 〇〇 is Continuous' at Kyoto Seika University's gallery Terra-S.",
+    "line3": "Education",
+    "line4": "2022 Kyoto City University of Arts master's degree\n2018 Kyoto University of Art and Design\n2012 started living and studing in Japan"
   }
 }

@@ -6,6 +6,7 @@ import { format } from "date-fns"
 import Image from "next/image"
 import { useState, MouseEvent, useRef, useEffect } from "react"
 import { useTina } from "tinacms/dist/react"
+import Autoplay from "embla-carousel-autoplay"
 
 interface Props {
   query: string
@@ -56,10 +57,18 @@ const Landing = (props: Props) => {
         </div>
       ) : (
         <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
-          <Carousel className="w-full" opts={{ loop: true }}>
+          <Carousel
+            className="w-full"
+            opts={{ loop: true }}
+            plugins={[
+              Autoplay({
+                delay: 2000,
+              }),
+            ]}
+          >
             <CarouselContent>
-              {arr.map((item, index) => (
-                <CarouselItem key={index}>
+              {arr.map((item, i) => (
+                <CarouselItem key={i}>
                   <div className="flex">
                     <div className="p-8" onMouseOver={() => setShowPrev(true)} onMouseLeave={() => setShowPrev(false)}></div>
                     <div className="flex-1 z-10">

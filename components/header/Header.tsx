@@ -20,7 +20,7 @@ const Header = () => {
           </Link>
         </div>
 
-        <ul className="hidden items-center gap-6 md:flex">
+        <ul className="hidden items-center gap-8 md:flex">
           {new Array(2).fill(null).map((_, i) => {
             const itemLabel = t(`links.item${i}.label`)
             const itemLink = t(`links.item${i}.link`)

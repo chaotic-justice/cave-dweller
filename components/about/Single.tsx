@@ -5,18 +5,19 @@ type Props = {
   lang: string
 }
 
-const About = ({ lang }: Props) => {
+const Single = ({ lang }: Props) => {
   const t = useTranslations("About")
 
   return (
     <div className="flex h-screen items-center">
       <div className="container px-4 md:px-6">
         <div className="space-y-4">
-          {new Array(3).fill(-1).map((_, i) => {
+          {new Array(5).fill(-1).map((_, i) => {
             const line = t(`line${i}`)
+            const multiLine = line.split("\n")
             return (
               <div key={i} className="space-y-4">
-                <p className="text-justify mx-auto sm:max-w-[490px] text-xs/6 sm:text-sm sm:leading-6 tracking-widest antialiased">{line}</p>
+                <p className={`text-justify mx-auto sm:max-w-[490px] text-xs/6 sm:text-sm sm:leading-6 tracking-widest antialiased ${multiLine} && whitespace-pre-wrap`}>{line}</p>
               </div>
             )
           })}
@@ -26,4 +27,4 @@ const About = ({ lang }: Props) => {
   )
 }
 
-export default About
+export default Single
