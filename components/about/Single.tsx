@@ -14,10 +14,9 @@ const Single = ({ lang }: Props) => {
         <div className="space-y-4">
           {new Array(5).fill(-1).map((_, i) => {
             const line = t(`line${i}`)
-            const multiLine = line.split("\n")
             return (
               <div key={i} className="space-y-4">
-                <p className={`text-justify mx-auto sm:max-w-[490px] text-xs/6 sm:text-sm sm:leading-6 tracking-widest antialiased ${multiLine} && whitespace-pre-wrap`}>{line}</p>
+                <p className="text-justify mx-auto sm:max-w-[490px] text-xs/6 sm:text-sm sm:leading-6 tracking-widest antialiased whitespace-pre-wrap">{line}</p>
               </div>
             )
           })}

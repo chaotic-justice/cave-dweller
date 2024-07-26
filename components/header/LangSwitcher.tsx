@@ -14,8 +14,6 @@ export const LangSwitcher = () => {
   let langName = lang && lang[0] && lang[0] !== "index" ? lang[0] : defaultLocale
 
   const handleSwitchLanguage = (value: string) => {
-    const newPath = `/${value}/${pathname}`
-    console.log("params", params)
     router.replace(pathname, { locale: value })
   }
 
