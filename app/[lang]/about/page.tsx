@@ -1,8 +1,8 @@
-import About from "@/app/[lang]/about/component"
 import { CoreProps } from "@/app/[lang]/layout"
+import Single from "@/components/about/Single"
 
 const page = ({ params: { lang } }: CoreProps) => {
-  return <About lang={lang} />
+  return <Single lang={lang} />
 }
 
 export default page
