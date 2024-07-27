@@ -35,8 +35,8 @@ const Many = ({
                       {arr.map((item, index) => (
                         <CarouselItem key={index}>
                           <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} className="w-full h-[600px] object-cover" />
-                          <h6 className="text-right mt-4 text-gray-900 ">Lorem, ipsum dolor.</h6>
-                          <p className="text-right mt-2 text-gray-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt.</p>
+                          {/* <h6 className="text-right mt-4 text-gray-900 ">Lorem, ipsum dolor.</h6>
+                          <p className="text-right mt-2 text-gray-700">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt.</p> */}
                         </CarouselItem>
                       ))}
                     </CarouselContent>
