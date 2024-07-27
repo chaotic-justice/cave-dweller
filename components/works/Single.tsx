@@ -83,8 +83,8 @@ const Single = (props: Props) => {
                 const paragraph = props.lang === "en" ? block?.paragraph_en : block?.paragraph_ja
                 return (
                   <div key={i} className="flex flex-col [&>:not(:last-child)]:mt-6 px-8">
-                    <p className="text-xs/6 sm:text-base font-medium mb-2">{subtitle}</p>
-                    <p className="text-xs/6 sm:text-base sm:leading-7 tracking-wider">{paragraph}</p>
+                    <p className="text-xs sm:text-base font-medium mb-2">{subtitle}</p>
+                    <p className="text-xs sm:text-base sm:leading-7 tracking-wider">{paragraph}</p>
                   </div>
                 )
               })}
