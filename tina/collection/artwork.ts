@@ -58,6 +58,11 @@ const Artwork: Collection = {
       required: true,
     },
     {
+      label: "Caption",
+      name: "caption",
+      type: "string",
+    },
+    {
       label: "mediaKind",
       name: "mediaKind",
       type: "string",
