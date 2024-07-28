@@ -47,8 +47,10 @@ const Many = ({
                               {/* <Image src={item || "/placeholder.svg"} alt="Artwork" width={400} height={600} className="w-full sm:h-2/5 " /> */}
                               {/* <Image src={item || "/placeholder.svg"} alt="Artwork" fill sizes="100vw" style={{ objectFit: "cover" }} /> */}
                               {/* <h6 className="mt-4 text-gray-900 ">Lorem, ipsum dolor.</h6> */}
-                              <p className="mt-2 text-gray-700">{formattedDate}</p>
-                              <p className="mt-2 text-gray-700 line-clamp-2 md:line-clamp-3">{caption}</p>
+                              <div className="text-center sm:text-right">
+                                <p className="mt-2 text-gray-700">{formattedDate}</p>
+                                <p className="mt-2 text-gray-700 line-clamp-2 md:line-clamp-3">{caption}</p>
+                              </div>
                             </CarouselItem>
                           </>
                         )
