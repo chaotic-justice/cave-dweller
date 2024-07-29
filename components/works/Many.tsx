@@ -18,8 +18,8 @@ const Many = ({
   },
 }: Props) => {
   return (
-    <div className="p-4 max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl">
-      <div className="columns-1 gap-2 md:columns-2 lg:columns-3 [&>img:not(:first-child)]:mt-4">
+    <div className="p-4 max-w-[428px] sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl">
+      <div className="columns-1 gap-2 md:columns-2 lg:columns-3">
         {edges?.concat(...edges).map((artwork) => {
           const pattern = /\/([^/]+)\.mdx$/
           const match = (artwork?.node?.id || "").match(pattern)
@@ -32,7 +32,7 @@ const Many = ({
           const caption = artwork?.node?.caption || "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt."
           const arr = artwork?.node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
           return (
-            <div key={artwork?.node?.id} className="pb-0 md:pb-8">
+            <div key={artwork?.node?.id} className="pb-0 sm:pb-6">
               <Link href={`/works/${match && match[1]}`}>
                 {arr.length === 0 ? (
                   <Image width={500} height={400} src={"/placeholder.svg"} alt={artwork?.node?.title!} />
@@ -49,7 +49,7 @@ const Many = ({
                               {/* <h6 className="mt-4 text-gray-900 ">Lorem, ipsum dolor.</h6> */}
                               <div className="text-center sm:text-right">
                                 <p className="mt-2 text-gray-700">{formattedDate}</p>
-                                <p className="mt-2 text-gray-700 line-clamp-2 md:line-clamp-3">{caption}</p>
+                                <p className="text-gray-700 line-clamp-1">{caption}</p>
                               </div>
                             </CarouselItem>
                           </>
