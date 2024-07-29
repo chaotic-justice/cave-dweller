@@ -3,8 +3,6 @@
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
 import { Link } from "@/lib/navigation"
 import { ArtworkConnectionQuery } from "@/tina/__generated__/types"
-import { format } from "date-fns"
-import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 
 interface Props {
@@ -20,16 +18,12 @@ const Many = ({
   return (
     <div className="p-4 max-w-[428px] sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl">
       <div className="columns-1 gap-2 md:columns-2 lg:columns-3">
-        {edges?.concat(...edges).map((artwork) => {
+        {edges?.map((artwork) => {
           const pattern = /\/([^/]+)\.mdx$/
           const match = (artwork?.node?.id || "").match(pattern)
           if (match && match[1] === "landing") return null
-          const date = new Date(artwork?.node?.date || Date.now())
-          let formattedDate = ""
-          if (!isNaN(date.getTime())) {
-            formattedDate = format(date, "MMM dd, yyyy")
-          }
-          const caption = artwork?.node?.caption || "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt."
+          const caption1 = artwork?.node?.caption1
+          const caption2 = artwork?.node?.caption2
           const arr = artwork?.node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
           return (
             <div key={artwork?.node?.id} className="pb-0 sm:pb-6">
@@ -48,8 +42,8 @@ const Many = ({
                               {/* <Image src={item || "/placeholder.svg"} alt="Artwork" fill sizes="100vw" style={{ objectFit: "cover" }} /> */}
                               {/* <h6 className="mt-4 text-gray-900 ">Lorem, ipsum dolor.</h6> */}
                               <div className="text-center sm:text-right">
-                                <p className="mt-2 text-gray-700">{formattedDate}</p>
-                                <p className="text-gray-700 line-clamp-1">{caption}</p>
+                                <p className="mt-2 text-gray-700">{caption1}</p>
+                                <p className="text-gray-700 line-clamp-1">{caption2}</p>
                               </div>
                             </CarouselItem>
                           </>
