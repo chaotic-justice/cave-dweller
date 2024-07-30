@@ -58,8 +58,13 @@ const Artwork: Collection = {
       required: true,
     },
     {
-      label: "Caption",
-      name: "caption",
+      label: "Caption1",
+      name: "caption1",
+      type: "string",
+    },
+    {
+      label: "Caption2",
+      name: "caption2",
       type: "string",
     },
     {
