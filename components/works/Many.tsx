@@ -1,6 +1,7 @@
 "use client"
 
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import ReactPlayer from "react-player/lazy"
 import { Link } from "@/lib/navigation"
 import { ArtworkConnectionQuery } from "@/tina/__generated__/types"
 import Image from "next/image"
@@ -17,19 +18,28 @@ const Many = ({
 }: Props) => {
   return (
     <div className="p-4 max-w-[428px] sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl">
-      <div className="columns-1 gap-2 md:columns-2 lg:columns-3">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
         {edges?.map((artwork) => {
+          const { node } = artwork || { node: null }
+          if (!node) return null
           const pattern = /\/([^/]+)\.mdx$/
-          const match = (artwork?.node?.id || "").match(pattern)
+          const match = (node?.id || "").match(pattern)
           if (match && match[1] === "landing") return null
-          const caption1 = artwork?.node?.caption1
-          const caption2 = artwork?.node?.caption2
-          const arr = artwork?.node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
+          const caption1 = node?.caption1
+          const caption2 = node?.caption2
+          const arr = node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
           return (
-            <div key={artwork?.node?.id} className="pb-0 sm:pb-6">
+            <div key={node?.id}>
               <Link href={`/works/${match && match[1]}`}>
-                {arr.length === 0 ? (
-                  <Image width={500} height={400} src={"/placeholder.svg"} alt={artwork?.node?.title!} />
+                {node?.mediaKind === "video" ? (
+                  <div className="sm:h-fit">
+                    <ReactPlayer
+                      url={node.videoLink || "https://youtu.be/XziAVXsCp00"}
+                      style={{
+                        maxWidth: "100%",
+                      }}
+                    />
+                  </div>
                 ) : (
                   <Carousel>
                     <CarouselContent>
@@ -37,10 +47,8 @@ const Many = ({
                         return (
                           <>
                             <CarouselItem key={index}>
-                              <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} className="h-fit md:max-h-64" />
-                              {/* <Image src={item || "/placeholder.svg"} alt="Artwork" width={400} height={600} className="w-full sm:h-2/5 " /> */}
-                              {/* <Image src={item || "/placeholder.svg"} alt="Artwork" fill sizes="100vw" style={{ objectFit: "cover" }} /> */}
-                              {/* <h6 className="mt-4 text-gray-900 ">Lorem, ipsum dolor.</h6> */}
+                              <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} />
+                              {/* <Image src={item || "/placeholder.svg"} alt="Artwork" width={400} height={600} className="w-full sm:h-fit" /> */}
                               <div className="text-center sm:text-right">
                                 <p className="mt-2 text-gray-700">{caption1}</p>
                                 <p className="text-gray-700 line-clamp-1">{caption2}</p>
