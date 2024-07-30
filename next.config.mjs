@@ -6,10 +6,14 @@ const withNextIntl = createNextIntlPlugin("./lib/i18n.ts")
 const nextConfig = {
   images: {
     remotePatterns: [
+      // {
+      //   protocol: "https",
+      //   hostname: "assets.tina.io",
+      //   port: "",
+      // },
       {
         protocol: "https",
-        hostname: "assets.tina.io",
-        port: "",
+        hostname: "**",
       },
     ],
   },

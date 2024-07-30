@@ -47,7 +47,7 @@ const Many = ({
                         return (
                           <>
                             <CarouselItem key={index}>
-                              <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} />
+                              <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} unoptimized={item?.includes("gif")} />
                               {/* <Image src={item || "/placeholder.svg"} alt="Artwork" width={400} height={600} className="w-full sm:h-fit" /> */}
                               <div className="text-center sm:text-right">
                                 <p className="mt-2 text-gray-700">{caption1}</p>
