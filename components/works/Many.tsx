@@ -5,6 +5,7 @@ import ReactPlayer from "react-player/lazy"
 import { Link } from "@/lib/navigation"
 import { ArtworkConnectionQuery } from "@/tina/__generated__/types"
 import Image from "next/image"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 interface Props {
   query: string
@@ -31,27 +32,21 @@ const Many = ({
           return (
             <div key={node?.id}>
               <Link href={`/works/${match && match[1]}`}>
-                {node?.mediaKind === "video" ? (
-                  <div className="sm:h-fit">
-                    <ReactPlayer
-                      url={node.videoLink || "https://youtu.be/XziAVXsCp00"}
-                      style={{
-                        maxWidth: "100%",
-                      }}
-                    />
-                  </div>
-                ) : (
+                {
                   <Carousel>
                     <CarouselContent>
                       {arr.map((item, index) => {
                         return (
                           <>
                             <CarouselItem key={index}>
-                              <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} unoptimized={item?.includes("gif")} />
-                              {/* <Image src={item || "/placeholder.svg"} alt="Artwork" width={400} height={600} className="w-full sm:h-fit" /> */}
-                              <div className="text-center sm:text-right">
-                                <p className="mt-2 text-gray-700">{caption1}</p>
-                                <p className="text-gray-700 line-clamp-1">{caption2}</p>
+                              <div>
+                                <AspectRatio ratio={16 / 9} className="bg-muted">
+                                  <Image src={item || "/placeholder.svg"} alt="Artwork" fill unoptimized={item?.includes("gif")} className="rounded-md object-cover" />
+                                </AspectRatio>
+                                <div className="text-center sm:text-right">
+                                  <p className="mt-2 text-gray-700">{caption1}</p>
+                                  <p className="text-gray-700 line-clamp-1">{caption2}</p>
+                                </div>
                               </div>
                             </CarouselItem>
                           </>
@@ -59,7 +54,7 @@ const Many = ({
                       })}
                     </CarouselContent>
                   </Carousel>
-                )}
+                }
               </Link>
             </div>
           )

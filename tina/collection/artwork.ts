@@ -68,20 +68,13 @@ const Artwork: Collection = {
       type: "string",
     },
     {
-      label: "mediaKind",
-      name: "mediaKind",
-      type: "string",
-      options: ["video", "jpegs"],
-      required: true,
-    },
-    {
       label: "Video link",
       name: "videoLink",
       type: "string",
       ui: {
         validate: (value, data) => {
           const youtubeRegex = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:\S+)?$/
-          if (data.mediaKind === "video" && !youtubeRegex.test(value)) {
+          if (!youtubeRegex.test(value)) {
             return "Invalid youtube link"
           }
         },
@@ -100,7 +93,7 @@ const Artwork: Collection = {
       ],
       ui: {
         validate: (value, data) => {
-          if (data.mediaKind === "jpegs" && value.length === 0) {
+          if (value.length === 0) {
             return "At least one image is required"
           }
         },
