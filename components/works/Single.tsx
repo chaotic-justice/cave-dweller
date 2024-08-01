@@ -1,10 +1,12 @@
 "use client"
 
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { ArtworkQuery, Author } from "@/tina/__generated__/types"
 import { format } from "date-fns"
 import Image from "next/image"
 import { useState, MouseEvent, useRef, useEffect } from "react"
+import ReactPlayer from "react-player/youtube"
 import { useTina } from "tinacms/dist/react"
 
 interface Props {
@@ -54,7 +56,7 @@ const Single = (props: Props) => {
           </div>
         </div>
       ) : (
-        <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[428px] sm:max-w-4xl sm:w-full px-4 sm:px-6 lg:px-8">
           <div className="bg-card rounded-lg overflow-hidden shadow-lg">
             <Carousel className="w-full" opts={{ loop: true }}>
               <CarouselContent>
@@ -62,9 +64,9 @@ const Single = (props: Props) => {
                   <CarouselItem key={index}>
                     <div className="flex flex-col sm:flex-row">
                       <div className="invisible sm:visible p-8" onMouseOver={() => setShowPrev(true)} onMouseLeave={() => setShowPrev(false)}></div>
-                      <div className="flex-1 z-10">
-                        <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} />
-                      </div>
+                      <AspectRatio ratio={16 / 9} className="bg-muted">
+                        <Image src={item || "/placeholder.svg"} alt="Artwork" fill unoptimized={item?.includes("gif")} className="rounded-md object-cover" />
+                      </AspectRatio>
                       <div className="invisible sm:visible p-8" onMouseOver={() => setShowNext(true)} onMouseLeave={() => setShowNext(false)}></div>
                     </div>
                   </CarouselItem>
@@ -88,6 +90,11 @@ const Single = (props: Props) => {
                   </div>
                 )
               })}
+              {artwork.videoLink && (
+                <div className="flex justify-center w-full">
+                  <ReactPlayer url={artwork.videoLink} width={600} height={400} controls />
+                </div>
+              )}
             </div>
           </div>
         </div>
