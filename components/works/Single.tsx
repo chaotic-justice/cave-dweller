@@ -92,7 +92,7 @@ const Single = (props: Props) => {
               })}
               {artwork.videoLink && (
                 <div className="flex justify-center w-full">
-                  <ReactPlayer url={artwork.videoLink} width={600} height={400} controls />
+                  <ReactPlayer url={artwork.videoLink} width={600} height={400} light controls />
                 </div>
               )}
             </div>

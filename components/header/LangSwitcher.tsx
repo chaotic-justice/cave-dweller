@@ -10,15 +10,14 @@ export const LangSwitcher = () => {
   const lang = params.lang
   const router = useRouter()
 
-  // const lang = (params.lang && params.lang[0]) || defaultLocale;
-  let langName = lang && lang[0] && lang[0] !== "index" ? lang[0] : defaultLocale
+  let langName = lang || defaultLocale
 
   const handleSwitchLanguage = (value: string) => {
     router.replace(pathname, { locale: value })
   }
 
   return (
-    <Select value={langName} onValueChange={handleSwitchLanguage}>
+    <Select value={langName as string} onValueChange={handleSwitchLanguage}>
       <SelectTrigger className="w-fit">
         <SelectValue placeholder="Language" />
       </SelectTrigger>
