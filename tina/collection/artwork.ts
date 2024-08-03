@@ -1,8 +1,8 @@
 import type { Collection, Template } from "tinacms"
 
-const varcharBlockSchema: Template = {
+const descriptiveBlockSchema: Template = {
   label: "Body Content",
-  name: "varcharBlock",
+  name: "descriptiveBlock",
   ui: {
     defaultItem: {
       subtitle: "20th Century Boys",
@@ -16,7 +16,7 @@ const varcharBlockSchema: Template = {
       type: "string",
     },
     {
-      label: "Paragraph 自然段 - en",
+      label: "Paragraph - en",
       name: "paragraph_en",
       type: "string",
       ui: {
@@ -29,7 +29,41 @@ const varcharBlockSchema: Template = {
       type: "string",
     },
     {
-      label: "Paragraph 自然段 - ja",
+      label: "Paragraph - ja",
+      name: "paragraph_ja",
+      type: "string",
+      ui: {
+        component: "textarea",
+      },
+    },
+  ],
+}
+
+const procedureBlockSchema: Template = {
+  label: "Procedure",
+  name: "procedureBlock",
+  ui: {
+    defaultItem: {
+      paragraph_ja: "Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad vasti, distulit. Crudus sub coniuge iam: dea propera sive",
+      paragraph_en: "Lorem markdownum evinctus ut cape adhaeret gravis licet progenies ut haesit maxima ille. Est scorpius, mori vel in visaeque Haemoniis viperei furoris e ad vasti, distulit. Crudus sub coniuge iam: dea propera sive",
+    },
+  },
+  fields: [
+    {
+      label: "Image",
+      name: "imgSrc",
+      type: "image",
+    },
+    {
+      label: "Paragraph - en",
+      name: "paragraph_en",
+      type: "string",
+      ui: {
+        component: "textarea",
+      },
+    },
+    {
+      label: "Paragraph - ja",
       name: "paragraph_ja",
       type: "string",
       ui: {
@@ -74,7 +108,7 @@ const Artwork: Collection = {
       ui: {
         validate: (value, data) => {
           const youtubeRegex = /^https?:\/\/(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([a-zA-Z0-9_-]{11})(?:\S+)?$/
-          if (!youtubeRegex.test(value)) {
+          if (value && !youtubeRegex.test(value)) {
             return "Invalid youtube link"
           }
         },
@@ -92,11 +126,6 @@ const Artwork: Collection = {
         },
       ],
       ui: {
-        validate: (value, data) => {
-          if (value.length === 0) {
-            return "At least one image is required"
-          }
-        },
         itemProps: (item) => {
           return {
             label: item?.imgSrc,
@@ -112,7 +141,7 @@ const Artwork: Collection = {
       name: "varcharBlocks",
       label: "补充文字内容 (Add body blocks)",
       list: true,
-      templates: [varcharBlockSchema],
+      templates: [descriptiveBlockSchema, procedureBlockSchema],
     },
     {
       type: "reference",
