@@ -87,16 +87,18 @@ const Landing = (props: Props) => {
             )}
           </Carousel>
           <div className="p-6 sm:p-8">
-            {artwork.varcharBlocks?.map((block, i) => {
-              const subtitle = props.lang === "en" ? block?.subtitle_en : block?.subtitle_ja
-              const paragraph = props.lang === "en" ? block?.paragraph_en : block?.paragraph_ja
-              return (
-                <div key={i} className="flex flex-col [&>:not(:last-child)]:mt-6 px-8">
-                  <p className="text-xs/6 sm:text-base font-medium mb-2">{subtitle}</p>
-                  <p className="text-xs/6 sm:text-base sm:leading-7 tracking-wider">{paragraph}</p>
-                </div>
-              )
-            })}
+            {artwork.varcharBlocks
+              ?.filter((block) => block?.__typename === "ArtworkVarcharBlocksDescriptiveBlock")
+              .map((block, i) => {
+                const subtitle = props.lang === "en" ? block?.subtitle_en : block?.subtitle_ja
+                const paragraph = props.lang === "en" ? block?.paragraph_en : block?.paragraph_ja
+                return (
+                  <div key={i} className="flex flex-col [&>:not(:last-child)]:mt-6 px-8">
+                    <p className="text-xs/6 sm:text-base font-medium mb-2">{subtitle}</p>
+                    <p className="text-xs/6 sm:text-base sm:leading-7 tracking-wider">{paragraph}</p>
+                  </div>
+                )
+              })}
           </div>
         </div>
       )}
