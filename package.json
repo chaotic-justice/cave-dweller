@@ -10,7 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@formatjs/intl-localematcher": "^0.5.4",
     "@nextui-org/react": "^2.2.10",
     "@radix-ui/react-aspect-ratio": "^1.1.0",
     "@radix-ui/react-select": "^2.0.0",

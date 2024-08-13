@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator"
 import { ArtworkQuery, Author } from "@/tina/__generated__/types"
 import { format } from "date-fns"
 import Image from "next/image"
-import { useState, MouseEvent, useRef, useEffect } from "react"
+import { useState } from "react"
 import ReactPlayer from "react-player/youtube"
 import { useTina } from "tinacms/dist/react"
 
