@@ -144,12 +144,6 @@ const Artwork: Collection = {
       templates: [descriptiveBlockSchema, procedureBlockSchema],
     },
     {
-      type: "reference",
-      label: "Author",
-      name: "author",
-      collections: ["author"],
-    },
-    {
       type: "datetime",
       label: "Posted Date",
       name: "date",

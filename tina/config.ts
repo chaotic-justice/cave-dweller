@@ -1,6 +1,5 @@
 import { defineConfig } from "tinacms";
-import Artwork from "./collection/artwork";
-import Author from "./collection/author";
+import Artwork from "./collection/artwork"
 
 // Your hosting provider likely exposes this as an environment variable
 const branch =
@@ -25,7 +24,7 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [Author, Artwork],
+    collections: [Artwork],
   },
 })
 

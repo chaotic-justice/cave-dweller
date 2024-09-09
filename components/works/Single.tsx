@@ -3,7 +3,7 @@
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Separator } from "@/components/ui/separator"
-import { ArtworkQuery, Author } from "@/tina/__generated__/types"
+import { ArtworkQuery } from "@/tina/__generated__/types"
 import { format } from "date-fns"
 import Image from "next/image"
 import { useState } from "react"
@@ -32,11 +32,6 @@ const Single = (props: Props) => {
   let formattedDate = ""
   if (!isNaN(date.getTime())) {
     formattedDate = format(date, "MMM dd, yyyy")
-  }
-  const { author } = artwork
-  let displayName = author?.displayNames?.find((name) => name?.lang === props.lang)
-  if (!displayName && author?.displayNames && author?.displayNames?.length > 0) {
-    displayName = author?.displayNames[0]
   }
 
   const [showPrev, setShowPrev] = useState(false)
@@ -116,27 +111,6 @@ const Single = (props: Props) => {
           </div>
         </div>
       )}
-    </div>
-  )
-}
-
-const DisplayAuthor = ({ author, lang }: { author: Author | null; lang: string }) => {
-  let displayName = author?.displayNames?.find((name) => name?.lang === lang)
-  if (!displayName && author?.displayNames && author?.displayNames?.length > 0) {
-    displayName = author?.displayNames[0]
-  }
-  return (
-    <div className="flex items-center justify-center mt-2 mb-8 sm:mb-12">
-      {author && (
-        <>
-          <div className="flex-shrink-0 mr-4">
-            <Image className="h-14 w-14 object-cover rounded-full shadow-sm" src={author.avatar || "/placeholder.svg"} alt={displayName?.value || "avatar"} width={500} height={500} />
-          </div>
-          <p className="text-base font-medium text-gray-600 group-hover:text-gray-800">{displayName?.value}</p>
-          <span className="font-bold text-gray-200 mx-2">—</span>
-        </>
-      )}
-      {/* <p className="text-base text-gray-400 group-hover:text-gray-500">{formattedDate}</p> */}
     </div>
   )
 }
