@@ -8,6 +8,7 @@ const config = {
   theme: {
     fontFamily: {
       jp: ["Noto Sans JP"],
+      zh: ["Noto Sans Simplified Chinese"],
     },
     container: {
       center: true,

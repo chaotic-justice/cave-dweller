@@ -11,7 +11,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { Viewport } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server"
-import { Inter as FontSans, Zen_Kaku_Gothic_Antique } from "next/font/google"
+import { Inter as FontSans, Zen_Kaku_Gothic_Antique, Noto_Serif_SC } from "next/font/google"
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,6 +24,19 @@ const zenKaku = Zen_Kaku_Gothic_Antique({
   preload: false,
   variable: "--font-jp",
 })
+
+const notoSerif = Noto_Serif_SC({
+  weight: ["200", "300", "400", "500", "600", "700"],
+  style: ["normal"],
+  preload: false,
+  variable: "--font-zh",
+})
+
+const fonts: Record<string, string> = {
+  en: `font-sans ${fontSans.variable}`,
+  ja: `font-jp ${zenKaku.variable}`,
+  zh: `font-zh ${notoSerif.variable}`,
+}
 
 export const metadata = {
   title: siteConfig.name,
@@ -53,7 +66,7 @@ export default async function RootLayout({ children, params: { lang } }: Props) 
   return (
     <html lang={lang}>
       <head />
-      <body className={cn("flex flex-col min-h-screen bg-background font-sans antialiased", lang === "en" ? `font-sans ${fontSans.variable}` : `font-jp ${zenKaku.variable}`)}>
+      <body className={cn("flex flex-col min-h-screen bg-background antialiased", lang in fonts ? fonts[lang] : `font-sans ${fontSans.variable}`)}>
         <ThemeProvider attribute="class" defaultTheme={siteConfig.nextThemeColor} enableSystem>
           <NextIntlClientProvider messages={messages}>
             <Header />

@@ -13,16 +13,20 @@ const Header = () => {
 
   return (
     <header className="py-10 px-4 sm:px-6 lg:px-8">
-      <nav className="z-50 flex justify-between">
-        <div className="flex items-center md:gap-x-12">
-          <Link href="/" aria-label="landing page" title="homepage" className="flex items-center space-x-1 font-bold">
+      <nav className="relative z-50 flex justify-between items-center">
+        {/* Left section */}
+        <div className="flex items-center md:gap-x-12 flex-1">
+          <Link href="/" aria-label="Landing Page Boilerplate" title="Landing Page Boilerplate" className="flex items-center space-x-1 font-bold">
             <span className="text-gray-950 dark:text-gray-300 hidden md:block">{t("title")}</span>
           </Link>
         </div>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        {/* Center section - Navigation */}
+        <ul className="hidden md:flex items-center justify-center gap-6 flex-1">
           {new Array(2).fill(null).map((_, i) => {
+            // @ts-ignore
             const itemLabel = t(`links.item${i}.label`)
+            // @ts-ignore
             const itemLink = t(`links.item${i}.link`)
             return (
               <li key={i}>
@@ -34,12 +38,14 @@ const Header = () => {
           })}
         </ul>
 
-        <div className="hidden md:flex items-center gap-x-6">
+        {/* Right section */}
+        <div className="hidden md:flex items-center justify-end gap-x-6 flex-1">
           <HeaderLinks />
           {/* <ThemedButton /> */}
           <LangSwitcher />
         </div>
 
+        {/* Mobile menu button */}
         <div className="md:hidden">
           <button aria-label="Open Menu" title="Open Menu" className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50" onClick={() => setIsMenuOpen(true)}>
             <MenuIcon />
@@ -49,12 +55,12 @@ const Header = () => {
               <div className="p-5 bg-background border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <Link href="/" aria-label="shukagi" title="shukagi" className="inline-flex items-center">
-                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-950 dark:text-gray-300">shukagi</span>
+                    <Link href="/" aria-label="Landing Page Boilerplate" title="Landing Page Boilerplate" className="inline-flex items-center">
+                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-950 dark:text-gray-300">{t("title")}</span>
                     </Link>
                   </div>
                   <div>
-                    <button aria-label="Close Menu" title="Close Menu" className="tracking-wide transition-colors duration-200 font-norma" onClick={() => setIsMenuOpen(false)}>
+                    <button aria-label="Close Menu" title="Close Menu" className="tracking-wide transition-colors duration-200 font-normal" onClick={() => setIsMenuOpen(false)}>
                       <CgClose />
                     </button>
                   </div>
@@ -62,11 +68,13 @@ const Header = () => {
                 <nav>
                   <ul className="space-y-4">
                     {new Array(2).fill(null).map((_, i) => {
+                      // @ts-ignore
                       const itemLabel = t(`links.item${i}.label`)
+                      // @ts-ignore
                       const itemLink = t(`links.item${i}.link`)
                       return (
-                        <li key={itemLabel}>
-                          <Link href={itemLink} aria-label={itemLabel} title={itemLabel} className="font-medium tracking-wide  transition-colors duration-200 hover:text-deep-purple-accent-400" onClick={() => setIsMenuOpen(false)}>
+                        <li key={i}>
+                          <Link href={itemLink} aria-label={itemLabel} title={itemLabel} className="tracking-wide transition-colors duration-200 font-norma">
                             {itemLabel}
                           </Link>
                         </li>
@@ -74,11 +82,11 @@ const Header = () => {
                     })}
                   </ul>
                 </nav>
-                <div className="pt-2">
-                  <div className="py-2 font-bold">Links</div>
+                <div className="pt-4">
                   <div className="flex items-center gap-x-5 justify-between">
                     <HeaderLinks />
                     <div className="flex items-center justify-end gap-x-5">
+                      {/* <ThemedButton /> */}
                       <LangSwitcher />
                     </div>
                   </div>

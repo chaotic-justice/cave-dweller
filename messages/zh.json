@@ -1,0 +1,22 @@
+{
+  "Header": {
+    "title": "朱家宜",
+    "links": {
+      "item0": {
+        "label": "works / projects",
+        "link": "/works"
+      },
+      "item1": {
+        "label": "cv / contact",
+        "link": "/about"
+      }
+    }
+  },
+  "About": {
+    "line0": "总部设在日本京都\nmail：shu.kagift@gmail.com",
+    "line1": "受日常梦境和冥想的启发，她将动画作为主要表达方式，试图捕捉观众和艺术家本人的无意识。自 2021 年以来，他一直在将自己的作品重构为适应展览空间的装置艺术。",
+    "line2": "入选 Chuo Line 艺术节 2022 'To a place together'（KOGANEI ART SPOT Chateau Tokyo），策划群展 'When 00 is Continuous'（Kyoto Seika University Gallery Terrace Kyoto）。",
+    "line3": "教育经历",
+    "line4": "2022年　京都市立艺术大学硕士学位\n2018年　京都艺术设计大学学士学位\n2012年　日本留学"
+  }
+}

@@ -7,6 +7,7 @@ import Image from "next/image"
 import { useState, MouseEvent, useRef, useEffect } from "react"
 import { useTina } from "tinacms/dist/react"
 import Autoplay from "embla-carousel-autoplay"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 
 interface Props {
   query: string
@@ -42,7 +43,7 @@ const Landing = (props: Props) => {
   const [showNext, setShowNext] = useState(false)
 
   return (
-    <div className="flex flex-col items-center justify-center bg-background">
+    <div className="container mx-auto py-8 bg-background">
       {!artwork ? (
         <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
           <div className="bg-card rounded-lg overflow-hidden shadow-lg animate-pulse">
@@ -56,9 +57,9 @@ const Landing = (props: Props) => {
           </div>
         </div>
       ) : (
-        <div className="max-w-4xl w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-center -mx-4">
           <Carousel
-            className="w-full"
+            className="w-full lg:w-1/2 px-4 mb-8"
             opts={{ loop: true }}
             plugins={[
               Autoplay({
@@ -69,12 +70,12 @@ const Landing = (props: Props) => {
             <CarouselContent>
               {arr.map((item, i) => (
                 <CarouselItem key={i}>
-                  <div className="flex">
-                    <div className="p-8" onMouseOver={() => setShowPrev(true)} onMouseLeave={() => setShowPrev(false)}></div>
-                    <div className="flex-1 z-10">
-                      <Image src={item || "/placeholder.svg"} alt="Artwork" width={900} height={600} />
-                    </div>
-                    <div className="p-8" onMouseOver={() => setShowNext(true)} onMouseLeave={() => setShowNext(false)}></div>
+                  <div className="flex flex-col sm:flex-row">
+                    <div className="invisible sm:visible p-8" onMouseOver={() => setShowPrev(true)} onMouseLeave={() => setShowPrev(false)}></div>
+                    <AspectRatio ratio={16 / 9} className="bg-muted">
+                      <Image src={item || "/placeholder.svg"} alt="Artwork" fill className="rounded-md object-cover" />
+                    </AspectRatio>
+                    <div className="invisible sm:visible p-8" onMouseOver={() => setShowNext(true)} onMouseLeave={() => setShowNext(false)}></div>
                   </div>
                 </CarouselItem>
               ))}
@@ -86,7 +87,7 @@ const Landing = (props: Props) => {
               </>
             )}
           </Carousel>
-          <div className="p-6 sm:p-8">
+          <div className="w-full lg:w-1/2 px-4 mb-8">
             {artwork.varcharBlocks
               ?.filter((block) => block?.__typename === "ArtworkVarcharBlocksDescriptiveBlock")
               .map((block, i) => {
