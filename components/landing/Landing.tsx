@@ -33,11 +33,6 @@ const Landing = (props: Props) => {
   if (!isNaN(date.getTime())) {
     formattedDate = format(date, "MMM dd, yyyy")
   }
-  const { author } = artwork
-  let displayName = author?.displayNames?.find((name) => name?.lang === props.lang)
-  if (!displayName && author?.displayNames && author?.displayNames?.length > 0) {
-    displayName = author?.displayNames[0]
-  }
 
   const [showPrev, setShowPrev] = useState(false)
   const [showNext, setShowNext] = useState(false)
