@@ -36,10 +36,10 @@
     "react-rough-notation": "^1.0.5",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "tinacms": "^1.6.4"
+    "tinacms": "^2.2.3"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.5.46",
+    "@tinacms/cli": "^1.6.3",
     "@types/negotiator": "^0.6.3",
     "@types/node": "^20.14.10",
     "@types/react": "^18",
