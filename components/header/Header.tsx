@@ -24,7 +24,9 @@ const Header = () => {
         {/* Center section - Navigation */}
         <ul className="hidden md:flex items-center justify-center gap-6 flex-1">
           {new Array(2).fill(null).map((_, i) => {
+            // @ts-ignore
             const itemLabel = t(`links.item${i}.label`)
+            // @ts-ignore
             const itemLink = t(`links.item${i}.link`)
             return (
               <li key={i}>
@@ -66,7 +68,9 @@ const Header = () => {
                 <nav>
                   <ul className="space-y-4">
                     {new Array(2).fill(null).map((_, i) => {
+                      // @ts-ignore
                       const itemLabel = t(`links.item${i}.label`)
+                      // @ts-ignore
                       const itemLink = t(`links.item${i}.link`)
                       return (
                         <li key={i}>
