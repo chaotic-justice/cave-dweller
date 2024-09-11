@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
     "postbuild": "next-sitemap",
-    "build": "tinacms build && next build",
+    "build": "tinacms build --no-client-build-cache && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -36,12 +36,12 @@
     "react-rough-notation": "^1.0.5",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "tinacms": "^1.6.4"
+    "tinacms": "^2.2.3"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.5.46",
+    "@tinacms/cli": "^1.6.3",
     "@types/negotiator": "^0.6.3",
-    "@types/node": "^20.14.10",
+    "@types/node": "^22.5.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
