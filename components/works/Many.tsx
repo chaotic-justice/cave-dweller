@@ -20,7 +20,7 @@ const Many = ({
   return (
     <div className="p-4 max-w-[428px] sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-xl">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-        {edges?.map((artwork) => {
+        {edges?.map((artwork, i) => {
           const { node } = artwork || { node: null }
           if (!node) return null
           const pattern = /\/([^/]+)\.mdx$/
@@ -30,7 +30,7 @@ const Many = ({
           const caption2 = node?.caption2
           const arr = node?.imagesList?.filter((item) => !!item?.imgSrc).map((img) => img?.imgSrc) || []
           return (
-            <div key={node?.id}>
+            <div key={node?.id + i}>
               <Link href={`/works/${match && match[1]}`}>
                 {
                   <Carousel>
