@@ -60,8 +60,8 @@ const Single = (props: Props) => {
                   <CarouselItem key={index}>
                     <div className="flex flex-col sm:flex-row">
                       <div className="invisible sm:visible p-8" onMouseOver={() => setShowPrev(true)} onMouseLeave={() => setShowPrev(false)}></div>
-                      <AspectRatio ratio={16 / 9} className="bg-muted">
-                        <Image src={item || "/placeholder.svg"} alt="Artwork" fill unoptimized={item?.includes("gif")} className="rounded-md object-cover" />
+                      <AspectRatio ratio={16 / 9}>
+                        <Image src={item || "/placeholder.svg"} alt="Artwork" fill className="rounded-md object-contain" />
                       </AspectRatio>
                       <div className="invisible sm:visible p-8" onMouseOver={() => setShowNext(true)} onMouseLeave={() => setShowNext(false)}></div>
                     </div>
