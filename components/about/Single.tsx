@@ -1,5 +1,7 @@
 "use client"
+import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { useTranslations } from "next-intl"
+import Image from "next/image"
 
 type Props = {
   lang: string
@@ -9,9 +11,12 @@ const Single = ({ lang }: Props) => {
   const t = useTranslations("About")
 
   return (
-    <div className="flex h-screen items-center">
-      <div className="container px-4 md:px-6">
-        <div className="space-y-4">
+    <div className="container max-w-screen-lg">
+      <div className="flex flex-wrap -mx-4">
+        <div className="w-full md:w-1/2 px-4 mb-8">
+          <Image src={"/about.jpg"} alt="Artwork" width={400} height={500} className="rounded-md object-contain" />
+        </div>
+        <div className="w-full md:w-1/2 px-4 mb-8 space-y-4">
           {new Array(5).fill(-1).map((_, i) => {
             // @ts-ignore
             const line = t(`line${i}`)
