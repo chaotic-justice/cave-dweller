@@ -2,7 +2,7 @@
 
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
-import { Link } from "@/lib/navigation"
+import { Link } from "@/i18n/routing"
 import { ArtworkConnectionQuery } from "@/tina/__generated__/types"
 import Image from "next/image"
 

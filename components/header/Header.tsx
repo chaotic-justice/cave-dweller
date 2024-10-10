@@ -1,7 +1,7 @@
 "use client"
 import HeaderLinks from "@/components/header/HeaderLinks"
-import { LangSwitcher } from "@/components/header/LangSwitcher"
-import { Link } from "@/lib/navigation"
+import PublicNavigationLocaleSwitcher from "@/components/header/PublicNavigationLocaleSwitcher"
+import { Link } from "@/i18n/routing"
 import { MenuIcon } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { useState } from "react"
@@ -42,7 +42,7 @@ const Header = () => {
         <div className="hidden md:flex items-center justify-end gap-x-6 flex-1">
           <HeaderLinks />
           {/* <ThemedButton /> */}
-          <LangSwitcher />
+          <PublicNavigationLocaleSwitcher />
         </div>
 
         {/* Mobile menu button */}
@@ -87,7 +87,7 @@ const Header = () => {
                     <HeaderLinks />
                     <div className="flex items-center justify-end gap-x-5">
                       {/* <ThemedButton /> */}
-                      <LangSwitcher />
+                      <PublicNavigationLocaleSwitcher />
                     </div>
                   </div>
                 </div>
