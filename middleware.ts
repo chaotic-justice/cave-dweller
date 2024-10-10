@@ -1,14 +1,7 @@
-import { localePrefix, locales } from "@/lib/i18n"
+import { routing } from "@/i18n/routing"
 import createMiddleware from "next-intl/middleware"
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales,
-
-  // Used when no locale matches
-  defaultLocale: "en",
-  localePrefix,
-})
+export default createMiddleware(routing)
 
 export const config = {
   matcher: [
@@ -17,7 +10,7 @@ export const config = {
 
     // Set a cookie to remember the previous locale for
     // all requests that have a locale prefix
-    "/(ja|en|zh)/:path*",
+    "/(ja|en|zh|de)/:path*",
 
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`)

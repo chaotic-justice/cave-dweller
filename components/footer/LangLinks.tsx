@@ -1,7 +1,8 @@
 "use client"
 
-import { defaultLocale, localeNames, locales } from "@/lib/i18n"
-import { Link, usePathname } from "@/lib/navigation"
+import { localeNames, locales } from "@/config/i18n"
+import { Link, usePathname } from "@/i18n/routing"
+
 
 const LangLinks = () => {
   const pathname = usePathname()
